@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+  repo: carajo8a74-lang/Grimlayertattoos
 
 site_url: https://grimlayertattoo.com
 display_url: https://grimlayertattoo.com
@@ -8,20 +9,18 @@ display_url: https://grimlayertattoo.com
 media_folder: "assets/portfolio"
 public_folder: "/assets/portfolio"
 
-publish_mode: simple
-
 collections:
   - name: "site"
     label: "Site"
     files:
       - file: "content/site.json"
-        label: "Main Content"
+        label: "Main content"
         name: "site"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Subtitle", name: "subtitle", widget: "string" }
-          - { label: "Instagram", name: "instagram", widget: "string" }
-          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+          - { label: "Instagram", name: "instagram", widget: "string", required: false }
+          - { label: "WhatsApp", name: "whatsapp", widget: "string", required: false }
           - label: "Gallery"
             name: "gallery"
             widget: "list"

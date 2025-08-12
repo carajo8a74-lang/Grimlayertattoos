@@ -4,12 +4,59 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Grimlayer Tattoo — Tampa</title>
+  <meta name="description" content="High‑detail tattoos in Tampa. Online booking and aftercare with protective film (Saniderm/Emalla)."/>
   <link rel="stylesheet" href="/styles.css"/>
+  <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <header class="topbar"><div class="brand">Grimlayer Tattoo</div><nav class="nav"><a href="/admin/" class="btn">Admin</a></nav></header>
-  <main class="section"><h1>High‑detail tattoos in Tampa</h1><p>Online booking and aftercare with protective film (Saniderm/Emalla).</p></main>
-  <footer class="footer"><small>© <span id="year"></span> Grimlayer Tattoo</small></footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <header class="topbar">
+    <div class="brand">Grimlayer Tattoo</div>
+    <nav class="nav">
+      <a class="btn" href="/admin/">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>High‑detail tattoos in Tampa</h1>
+      <p class="muted">Online booking and aftercare with protective film (Saniderm/Emalla).</p>
+    </section>
+
+    <section class="section">
+      <h2>Portfolio</h2>
+      <div class="gallery" id="gallery"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>© <span id="year"></span> Grimlayer Tattoo</small>
+  </footer>
+
+  <script>
+    // Identity: if the user just logged in via the popup, go to /admin/
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+    // UI
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Simple gallery from content/site.json if present
+    fetch('/content/site.json').then(r=>r.json()).then(data=>{
+      const g = document.getElementById('gallery');
+      (data.gallery || []).forEach(item=>{
+        const fig = document.createElement('figure');
+        const img = document.createElement('img');
+        img.src = item.image; img.alt = item.alt || '';
+        fig.appendChild(img);
+        if (item.alt) { const cap = document.createElement('figcaption'); cap.textContent = item.alt; fig.appendChild(cap); }
+        g.appendChild(fig);
+      });
+    }).catch(()=>{});
+  </script>
 </body>
 </html>

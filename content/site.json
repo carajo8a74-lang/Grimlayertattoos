@@ -1,28 +1,20 @@
 {
-  "title": "Grimlayer Tattoo",
-  "subtitle": "Custom Tattoo Studio \u2014 Aftercare with Saniderm/Emalla (7 days).",
-  "instagram": "https://instagram.com/grimlayertattoo",
-  "whatsapp": "https://wa.me/13059155560",
+  "title": "Grimlayer Tattoo \u2014 Tampa",
+  "subtitle": "High\u2011detail tattoos in Tampa. Online booking and aftercare with protective film (Saniderm/Emalla).",
+  "instagram": "@grimlayertattoo",
+  "whatsapp": "https://wa.me/",
   "gallery": [
     {
       "image": "/assets/portfolio/1.jpg",
-      "alt": "Sample tattoo 1"
+      "alt": "Sample piece 1"
     },
     {
       "image": "/assets/portfolio/2.jpg",
-      "alt": "Sample tattoo 2"
+      "alt": "Sample piece 2"
     },
     {
       "image": "/assets/portfolio/3.jpg",
-      "alt": "Sample tattoo 3"
-    },
-    {
-      "image": "/assets/portfolio/4.jpg",
-      "alt": "Sample tattoo 4"
-    },
-    {
-      "image": "/assets/portfolio/5.jpg",
-      "alt": "Sample tattoo 5"
+      "alt": "Sample piece 3"
     }
   ]
 }
