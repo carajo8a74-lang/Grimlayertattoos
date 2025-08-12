@@ -3,16 +3,26 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Grimlayer Admin</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <title>Admin — Grimlayer</title>
+  <link rel="icon" href="data:,">
+  <style>
+    html,body{height:100%;margin:0;background:#0b0f14;color:#e6edf3}
+    .ready{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font:600 14px system-ui,Segoe UI,Roboto,Helvetica,Arial}
+    .ready span{opacity:.7}
+  </style>
+  <!-- Netlify Identity Widget (required for Git Gateway auth) -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
+  <div class="ready"><span>Loading Admin…</span></div>
   <script>
-    const API_URL = "https://grimlayertattoo.com/.netlify/identity";
+    // If the Identity widget is on the page, show the login modal if the user is not logged in.
     if (window.netlifyIdentity) {
-      try { window.netlifyIdentity.setAPIUrl(API_URL); } catch(e) {}
-      window.netlifyIdentity.on('init', user => { if (!user) window.netlifyIdentity.open(); });
+      window.netlifyIdentity.on('init', user => {
+        if (!user) { window.netlifyIdentity.on('login', () => { document.location.reload(); }); }
+      });
     }
   </script>
 </body>

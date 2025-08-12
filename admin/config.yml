@@ -1,55 +1,62 @@
 backend:
   name: git-gateway
   branch: main
-  identity_url: "https://grimlayertattoo.com/.netlify/identity"
-  gateway_url: "https://grimlayertattoo.com/.netlify/git"
+  identity_url: https://grimlayertattoo.com/.netlify/identity
+  gateway_url: https://grimlayertattoo.com/.netlify/git
+
+site_url: https://grimlayertattoo.com
+display_url: https://grimlayertattoo.com
 
 media_folder: "assets/portfolio"
 public_folder: "/assets/portfolio"
 
+locale: en
+
 collections:
-  - name: "site_en"
-    label: "Site (English)"
+  - name: "site"
+    label: "Site content"
     files:
       - file: "content/site.en.json"
-        label: "Main content (EN)"
+        label: "Homepage (EN)"
         name: "site_en"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Subtitle", name: "subtitle", widget: "string" }
-          - { label: "Instagram", name: "instagram", widget: "string", required: false }
-          - { label: "WhatsApp (digits only)", name: "whatsapp", widget: "string" }
-          - { label: "WhatsApp Message", name: "whatsapp_message", widget: "text" }
+          - { label: "Instagram", name: "instagram", widget: "string" }
+          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
           - label: "Gallery"
             name: "gallery"
             widget: "list"
             fields:
               - { label: "Image", name: "image", widget: "image" }
-              - { label: "Alt", name: "alt", widget: "string", required: false }
-          - label: "Aftercare"
+              - { label: "Alt text", name: "alt", widget: "string", required: false }
+          - label: "Aftercare (EN)"
             name: "aftercare"
-            widget: "list"
-            field: { label: "Step", name: "step", widget: "string" }
-
-  - name: "site_es"
-    label: "Sitio (Español)"
-    files:
+            widget: "markdown"
       - file: "content/site.es.json"
-        label: "Contenido principal (ES)"
+        label: "Inicio (ES)"
         name: "site_es"
         fields:
           - { label: "Título", name: "title", widget: "string" }
           - { label: "Subtítulo", name: "subtitle", widget: "string" }
-          - { label: "Instagram", name: "instagram", widget: "string", required: false }
-          - { label: "WhatsApp (solo números)", name: "whatsapp", widget: "string" }
-          - { label: "Mensaje de WhatsApp", name: "whatsapp_message", widget: "text" }
+          - { label: "Instagram", name: "instagram", widget: "string" }
+          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
           - label: "Galería"
             name: "gallery"
             widget: "list"
             fields:
               - { label: "Imagen", name: "image", widget: "image" }
               - { label: "Alt", name: "alt", widget: "string", required: false }
-          - label: "Aftercare"
+          - label: "Aftercare (ES)"
             name: "aftercare"
-            widget: "list"
-            field: { label: "Paso", name: "step", widget: "string" }
+            widget: "markdown"
+
+  - name: "portfolio"
+    label: "Portfolio"
+    folder: "content/portfolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "body", widget: "markdown", required: false }
