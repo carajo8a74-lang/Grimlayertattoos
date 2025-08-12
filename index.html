@@ -6,17 +6,16 @@
   <title>Grimlayer Tattoo — Tampa</title>
   <meta name="description" content="High‑detail tattoos in Tampa. Online booking and aftercare with protective film (Saniderm/Emalla)."/>
   <link rel="stylesheet" href="/styles.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="preconnect" href="https://unpkg.com">
 </head>
 <body>
   <header class="topbar">
     <div class="brand">Grimlayer Tattoo</div>
     <nav class="nav">
-      <button id="langEN" class="chip on">EN</button>
-      <button id="langES" class="chip">ES</button>
+      <a id="langEN" class="chip on" href="#">EN</a>
+      <a id="langES" class="chip" href="#">ES</a>
       <a id="igLink" class="link" target="_blank" rel="noopener">@grimlayertattoo</a>
       <a id="waLink" class="btn" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn ghost" href="/admin/">Admin</a>
     </nav>
   </header>
 
@@ -43,8 +42,18 @@
 
   <footer class="footer">
     <small>© <span id="year"></span> Grimlayer Tattoo</small>
+    <a href="/admin/" class="muted small">Admin</a>
   </footer>
 
+  <script>
+  // Identity magic redirects for invite/reset tokens -> /admin/
+  (function() {
+    var hash = window.location.hash || "";
+    if (/#(invite_token|confirmation_token|recovery_token)=/i.test(hash)) {
+      window.location.replace("/admin/" + hash);
+    }
+  })();
+  </script>
   <script src="/app.js"></script>
 </body>
 </html>

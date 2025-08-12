@@ -1,8 +1,6 @@
 backend:
   name: git-gateway
   branch: main
-  identity_url: https://grimlayertattoo.com/.netlify/identity
-  gateway_url: https://grimlayertattoo.com/.netlify/git
 
 site_url: https://grimlayertattoo.com
 display_url: https://grimlayertattoo.com
@@ -11,34 +9,30 @@ media_folder: "assets/portfolio"
 public_folder: "/assets/portfolio"
 
 collections:
-  - name: "site_en"
-    label: "Homepage (EN)"
-    file: "content/site.en.json"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Subtitle", name: "subtitle", widget: "string" }
-      - { label: "Instagram", name: "instagram", widget: "string" }
-      - { label: "WhatsApp", name: "whatsapp", widget: "string" }
-      - label: "Gallery"
-        name: "gallery"
-        widget: "list"
+  - name: "site"
+    label: "Site"
+    files:
+      - file: "content/site.json"
+        label: "Main Content"
+        name: "site"
         fields:
-          - { label: "Image", name: "image", widget: "image" }
-          - { label: "Alt", name: "alt", widget: "string", required: false }
-      - { label: "Aftercare (markdown)", name: "aftercare_md", widget: "markdown" }
-
-  - name: "site_es"
-    label: "Inicio (ES)"
-    file: "content/site.es.json"
-    fields:
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Subtítulo", name: "subtitle", widget: "string" }
-      - { label: "Instagram", name: "instagram", widget: "string" }
-      - { label: "WhatsApp", name: "whatsapp", widget: "string" }
-      - label: "Galería"
-        name: "gallery"
-        widget: "list"
-        fields:
-          - { label: "Imagen", name: "image", widget: "image" }
-          - { label: "Alt", name: "alt", widget: "string", required: false }
-      - { label: "Aftercare (markdown)", name: "aftercare_md", widget: "markdown" }
+          - { label: "Title (EN)", name: "title", widget: "string", i18n: true }
+          - { label: "Subtitle (EN)", name: "subtitle", widget: "string", i18n: true }
+          - { label: "Booking URL", name: "booking_url", widget: "string", i18n: true }
+          - { label: "Book button text", name: "book_text", widget: "string", i18n: true }
+          - { label: "See portfolio text", name: "see_portfolio", widget: "string", i18n: true }
+          - { label: "Instagram", name: "instagram", widget: "string", i18n: true, required: false }
+          - { label: "WhatsApp Text", name: "whatsapp_text", widget: "string", i18n: true, required: false }
+          - { label: "WhatsApp URL", name: "whatsapp_url", widget: "string", i18n: true, required: false }
+          - { label: "Portfolio Heading", name: "portfolio_heading", widget: "string", i18n: true }
+          - { label: "Aftercare Heading", name: "aftercare_heading", widget: "string", i18n: true }
+          - label: "Gallery"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Alt", name: "alt", widget: "string", required: false }
+          - label: "Aftercare"
+            name: "aftercare"
+            widget: "list"
+            field: { label: "Step", name: "step", widget: "string" }

@@ -1,22 +1,68 @@
 {
-  "title_en": "High-detail tattoos in Tampa",
-  "subtitle_en": "Online booking and aftercare with protective film (Saniderm/Emalla).",
-  "title_es": "Tatuajes de alto detalle en Tampa",
-  "subtitle_es": "Reserva online y aftercare con membrana protectora (Saniderm/Emalla).",
-  "instagram": "@grimlayertattoo",
-  "whatsapp": "https://wa.me/1xxxxxxxxxx",
-  "gallery": [
-    {
-      "image": "assets/portfolio/1.png",
-      "alt": "Placeholder 1"
-    },
-    {
-      "image": "assets/portfolio/2.png",
-      "alt": "Placeholder 2"
-    },
-    {
-      "image": "assets/portfolio/3.png",
-      "alt": "Placeholder 3"
-    }
-  ]
+  "en": {
+    "title": "High‑detail tattoos in Tampa",
+    "subtitle": "Online booking and aftercare with protective film (Saniderm/Emalla).",
+    "booking_url": "https://wa.me/13059155560?text=Hi%20I%27d%20like%20to%20book%20a%20tattoo",
+    "book_text": "Book now",
+    "see_portfolio": "See portfolio",
+    "instagram": "@grimlayertattoo",
+    "whatsapp_text": "WhatsApp",
+    "whatsapp_url": "https://wa.me/13059155560",
+    "portfolio_heading": "Portfolio",
+    "aftercare_heading": "Aftercare",
+    "gallery": [
+      {
+        "image": "/assets/portfolio/1.jpg",
+        "alt": "Dark spider/skull shoulder piece"
+      },
+      {
+        "image": "/assets/portfolio/2.jpg",
+        "alt": "Surreal forearm composition"
+      },
+      {
+        "image": "/assets/portfolio/3.jpg",
+        "alt": "Classical linework sleeve"
+      }
+    ],
+    "aftercare": [
+      "Keep film on for 24–48h. If it leaks, replace with new film.",
+      "Wash gently with fragrance‑free soap. Pat dry.",
+      "Moisturize 2–3×/day with thin layers. No scratching or picking.",
+      "Avoid pools, sun, and heavy workouts 1–2 weeks."
+    ],
+    "instagram_url": "https://instagram.com/grimlayertattoo"
+  },
+  "es": {
+    "title": "Tatuajes de alto detalle en Tampa",
+    "subtitle": "Reserva online y aftercare con membrana protectora (Saniderm/Emalla).",
+    "booking_url": "https://wa.me/13059155560?text=Hola%20quiero%20agendar%20un%20tatuaje",
+    "book_text": "Reservar ahora",
+    "see_portfolio": "Ver portafolio",
+    "instagram": "@grimlayertattoo",
+    "whatsapp_text": "WhatsApp",
+    "whatsapp_url": "https://wa.me/13059155560",
+    "portfolio_heading": "Portafolio",
+    "aftercare_heading": "Aftercare",
+    "gallery": [
+      {
+        "image": "/assets/portfolio/1.jpg",
+        "alt": "Pieza oscura de araña/calavera en hombro"
+      },
+      {
+        "image": "/assets/portfolio/2.jpg",
+        "alt": "Composición surrealista en antebrazo"
+      },
+      {
+        "image": "/assets/portfolio/3.jpg",
+        "alt": "Sleeve clásico en linework"
+      }
+    ],
+    "aftercare": [
+      "Mantén la membrana 24–48h. Si gotea, reemplázala.",
+      "Lava suavemente con jabón neutro. Seca con golpecitos.",
+      "Hidrata 2–3×/día en capas finas. No rascar ni quitar costras.",
+      "Evita piscinas, sol y ejercicio intenso por 1–2 semanas."
+    ],
+    "instagram_url": "https://instagram.com/grimlayertattoo"
+  }
 }

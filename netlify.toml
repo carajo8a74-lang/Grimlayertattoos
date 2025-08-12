@@ -1,19 +1,9 @@
+
 [build]
   publish = "."
 
-# Limpia /admin vs /admin/
+# Redirect SPA deep links and identity token callbacks to /admin/ or root as needed
 [[redirects]]
-  from = "/admin"
-  to = "/admin/"
-  status = 301
-
-# Sirve config.yml con MIME correcto y evita caché en admin
-[[headers]]
-  for = "/admin/config.yml"
-  [headers.values]
-  Content-Type = "text/yaml; charset=utf-8"
-
-[[headers]]
-  for = "/admin/*"
-  [headers.values]
-  Cache-Control = "no-store, no-cache, must-revalidate, max-age=0"
+  from = "/*"
+  to = "/index.html"
+  status = 200
