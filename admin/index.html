@@ -1,42 +1,10 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Grimlayer Admin</title>
-    <!-- Decap CMS core -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <!-- Netlify Identity widget (required for git-gateway auth) -->
-    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <style>
-      html,body{height:100%}
-      body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:#0b0d10;color:#e6e9ee}
-      .hint{position:fixed;left:0;right:0;bottom:0;padding:.6rem 1rem;background:#0b0d10;border-top:1px solid #1d232f;color:#94a3b8;font-size:12px}
-      .hint a{color:#6ea8ff;text-decoration:none}
-    </style>
-  </head>
-  <body>
-    <div class="hint">
-      Identity URL locked to <code>https://grimlayertattoo.com/.netlify/identity</code>. 
-      Ensure Identity + Git Gateway are enabled and your user is Confirmed.
-    </div>
-    <script>
-      // Force Identity API URL to your production domain (avoids auth loops)
-      const API_URL = "https://grimlayertattoo.com/.netlify/identity";
-      window.CMS_MANUAL_INIT = true;
-      document.addEventListener("DOMContentLoaded", function () {
-        if (window.netlifyIdentity) {
-          try { netlifyIdentity.setAPIUrl(API_URL); } catch(e) {}
-          netlifyIdentity.on("init", user => { if (!user) netlifyIdentity.open(); });
-        }
-        CMS.init({
-          config: {
-            backend: { name: "git-gateway", branch: "main" },
-            media_folder: "assets/portfolio",
-            public_folder: "/assets/portfolio"
-          }
-        });
-      });
-    </script>
-  </body>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Content Manager</title>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+</head>
+<body>
+</body>
 </html>
