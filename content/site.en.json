@@ -2,7 +2,15 @@
   "title": "High‑detail tattoos in Tampa",
   "subtitle": "Online booking and aftercare with protective film (Saniderm/Emalla).",
   "instagram": "@grimlayertattoo",
-  "whatsapp": "3059155560",
+  "whatsapp": "13059155560",
+  "whatsapp_message": "Hi! I want to book a tattoo. Date: [MM/DD], Size/placement: [details].",
+  "aftercare": [
+    "Wash hands before touching the area.",
+    "Keep protective film on for 7 days (Saniderm/Emalla).",
+    "If excess plasma builds up, replace film within 24–48 hours.",
+    "Avoid pool/sauna/sun exposure during the 7 days.",
+    "After removing on day 7, wash gently, pat dry, apply thin layer of cream 2–3×/day for a week."
+  ],
   "gallery": [
     {
       "image": "/assets/portfolio/1.jpg",

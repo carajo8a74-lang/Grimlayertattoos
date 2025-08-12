@@ -9,11 +9,13 @@
   const bookBtn = document.getElementById('bookBtn');
   const seePortfolio = document.getElementById('seePortfolio');
   const portfolioHeading = document.getElementById('portfolioHeading');
-  const gallery = document.querySelector('.gallery');
+  const aftercareHeading = document.getElementById('aftercareHeading');
+  const gallery = document.getElementById('portfolio');
+  const aftercare = document.getElementById('aftercare');
 
   const labels = {
-    en: { book:'Book now', see:'See portfolio', portfolio:'Portfolio' },
-    es: { book:'Reservar ahora', see:'Ver portafolio', portfolio:'Portafolio' },
+    en: { book:'Book now', see:'See portfolio', portfolio:'Portfolio', aftercare:'Aftercare' },
+    es: { book:'Reservar ahora', see:'Ver portafolio', portfolio:'Portafolio', aftercare:'Aftercare' },
   };
 
   function getLang(){
@@ -32,6 +34,7 @@
     bookBtn.textContent = labels[l].book;
     seePortfolio.textContent = labels[l].see;
     portfolioHeading.textContent = labels[l].portfolio;
+    aftercareHeading.textContent = labels[l].aftercare;
   }
 
   function render(data){
@@ -44,9 +47,12 @@
     }
     if(data.whatsapp){
       const num = (''+data.whatsapp).replace(/[^0-9]/g,'');
-      waLink.href='https://wa.me/'+num;
-      bookBtn.href='https://wa.me/'+num;
+      const msg = encodeURIComponent(data.whatsapp_message || 'Hi! I want to book a tattoo. Date: [MM/DD], Size/placement: [details].');
+      const url = 'https://wa.me/'+num+'?text='+msg;
+      waLink.href=url;
+      bookBtn.href=url;
     }
+    // Gallery
     gallery.innerHTML='';
     (data.gallery||[]).forEach(item=>{
       const src = typeof item==='string'? item : item.image;
@@ -57,6 +63,13 @@
       card.appendChild(img); if(alt){const c=document.createElement('div'); c.className='caption'; c.textContent=alt; card.appendChild(c);}
       gallery.appendChild(card);
     });
+    // Aftercare
+    aftercare.innerHTML='';
+    const list = document.createElement('ul');
+    (data.aftercare||[]).forEach(step=>{
+      const li=document.createElement('li'); li.textContent = step; list.appendChild(li);
+    });
+    aftercare.appendChild(list);
   }
 
   async function load(l){

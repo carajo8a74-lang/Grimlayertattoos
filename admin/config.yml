@@ -19,7 +19,12 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Subtitle", name: "subtitle", widget: "string" }
           - { label: "Instagram", name: "instagram", widget: "string" }
-          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+          - { label: "WhatsApp (digits only)", name: "whatsapp", widget: "string" }
+          - { label: "WhatsApp message", name: "whatsapp_message", widget: "text", default: "Hi! I want to book a tattoo. Date: [MM/DD], Size/placement: [details]." }
+          - label: "Aftercare (list)"
+            name: "aftercare"
+            widget: "list"
+            field: { label: "Step", name: "step", widget: "string" }
           - label: "Gallery"
             name: "gallery"
             widget: "list"
@@ -37,7 +42,12 @@ collections:
           - { label: "Título", name: "title", widget: "string" }
           - { label: "Subtítulo", name: "subtitle", widget: "string" }
           - { label: "Instagram", name: "instagram", widget: "string" }
-          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+          - { label: "WhatsApp (solo números)", name: "whatsapp", widget: "string" }
+          - { label: "Mensaje de WhatsApp", name: "whatsapp_message", widget: "text", default: "Hola, quiero reservar un tatuaje. Fecha: [DD/MM], Tamaño/zona: [detalles]." }
+          - label: "Aftercare (lista)"
+            name: "aftercare"
+            widget: "list"
+            field: { label: "Paso", name: "step", widget: "string" }
           - label: "Galería"
             name: "gallery"
             widget: "list"
