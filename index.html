@@ -1,50 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Grimlayer Tattoo — Tampa</title>
-  <meta name="description" content="High‑detail tattoos in Tampa. Online booking and aftercare with protective film (Saniderm/Emalla)."/>
-  <link rel="stylesheet" href="/styles.css"/>
-  <link rel="preconnect" href="https://unpkg.com">
-</head>
-<body>
-  <header class="topbar">
-    <div class="brand">Grimlayer Tattoo</div>
-    <nav class="nav">
-      <button id="langEN" class="chip on">EN</button>
-      <button id="langES" class="chip">ES</button>
-      <a id="igLink" class="link">@grimlayertattoo</a>
-      <a id="waLink" class="btn">WhatsApp</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <h1 id="title">High‑detail tattoos in Tampa</h1>
-      <p id="subtitle" class="muted">Online booking and aftercare with protective film (Saniderm/Emalla).</p>
-      <div class="cta">
-        <a id="bookBtn" class="btn lg" target="_blank" rel="noopener">Book now</a>
-        <a href="#portfolio" class="btn ghost lg" id="seePortfolio">See portfolio</a>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 id="portfolioHeading" class="h2">Portfolio</h2>
-      <div id="portfolio" class="gallery"></div>
-    </section>
-
-    <section class="section">
-      <h2 id="aftercareHeading" class="h2">Aftercare</h2>
-      <div id="aftercare" class="aftercare"></div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <small>© <span id="year"></span> Grimlayer Tattoo</small>
-    <a href="/admin/" class="muted small">Admin</a>
-  </footer>
-
-  <script src="/app.js"></script>
-</body>
-</html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grimlayer Admin</title><script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script></head><body>
+  <!-- Netlify Identity Widget to redirect to /admin after login -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body></html>

@@ -5,7 +5,58 @@ backend:
   identity_url: "https://grimlayertattoo.com/.netlify/identity"
   gateway_url: "https://grimlayertattoo.com/.netlify/git"
 
-media_folder: "static/images/uploads"
-public_folder: "/images/uploads"
+media_folder: "assets/portfolio"
+public_folder: "/assets/portfolio"
 
-locale: en
+collections:
+  - name: "content_en"
+    label: "Site (English)"
+    delete: false
+    editor: { preview: false }
+    files:
+      - file: "content/site.en.json"
+        label: "Main content (EN)"
+        name: "site_en"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Instagram", name: "instagram", widget: "string", required: false }
+          - { label: "WhatsApp (digits only)", name: "whatsapp", widget: "string" }
+          - { label: "WhatsApp Message", name: "whatsapp_message", widget: "text" }
+          - { label: "Booking URL (optional)", name: "booking_url", widget: "string", required: false }
+          - label: "Gallery"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Alt", name: "alt", widget: "string", required: false }
+          - label: "Aftercare"
+            name: "aftercare"
+            widget: "list"
+            field: { label: "Step", name: "step", widget: "string" }
+
+  - name: "content_es"
+    label: "Sitio (Español)"
+    delete: false
+    editor: { preview: false }
+    files:
+      - file: "content/site.es.json"
+        label: "Contenido principal (ES)"
+        name: "site_es"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "string" }
+          - { label: "Instagram", name: "instagram", widget: "string", required: false }
+          - { label: "WhatsApp (solo números)", name: "whatsapp", widget: "string" }
+          - { label: "Mensaje de WhatsApp", name: "whatsapp_message", widget: "text" }
+          - { label: "URL de reservas (opcional)", name: "booking_url", widget: "string", required: false }
+          - label: "Galería"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - { label: "Imagen", name: "image", widget: "image" }
+              - { label: "Alt", name: "alt", widget: "string", required: false }
+          - label: "Aftercare"
+            name: "aftercare"
+            widget: "list"
+            field: { label: "Paso", name: "step", widget: "string" }
