@@ -1,88 +1,71 @@
 (function(){
-  const YEAR = document.getElementById('year'); YEAR.textContent = new Date().getFullYear();
-  const langEN = document.getElementById('langEN');
-  const langES = document.getElementById('langES');
-  const title = document.getElementById('title');
-  const subtitle = document.getElementById('subtitle');
-  const igLink = document.getElementById('igLink');
-  const waLink = document.getElementById('waLink');
-  const bookBtn = document.getElementById('bookBtn');
-  const seePortfolio = document.getElementById('seePortfolio');
-  const portfolioHeading = document.getElementById('portfolioHeading');
-  const aftercareHeading = document.getElementById('aftercareHeading');
-  const gallery = document.getElementById('portfolio');
-  const aftercare = document.getElementById('aftercare');
-
-  const labels = {
-    en: { book:'Book now', see:'See portfolio', portfolio:'Portfolio', aftercare:'Aftercare' },
-    es: { book:'Reservar ahora', see:'Ver portafolio', portfolio:'Portafolio', aftercare:'Aftercare' },
+  const $ = (s)=>document.querySelector(s);
+  $('#year').textContent = new Date().getFullYear();
+  const enBtn=$('#langEN'), esBtn=$('#langES');
+  const t=$=>document.getElementById($);
+  const map={
+    en:{book:'Book now',see:'See portfolio',portfolio:'Portfolio',aftercare:'Aftercare'},
+    es:{book:'Reservar ahora',see:'Ver portafolio',portfolio:'Portafolio',aftercare:'Aftercare'}
   };
-
   function getLang(){
-    const q = new URLSearchParams(location.search);
-    return (q.get('lang')||localStorage.getItem('lang')||'en').toLowerCase().startsWith('es')?'es':'en';
+    const p=new URLSearchParams(location.search);
+    const x=(p.get('lang')||localStorage.getItem('lang')||'en').toLowerCase();
+    return x.startsWith('es')?'es':'en';
   }
   function setLang(l){
-    localStorage.setItem('lang', l);
-    const q = new URLSearchParams(location.search); q.set('lang',l);
-    history.replaceState(null,'','?'+q.toString());
+    localStorage.setItem('lang',l);
+    const p=new URLSearchParams(location.search); p.set('lang',l);
+    history.replaceState(null,'','?'+p.toString());
   }
-
   function applyLang(l){
-    langEN.classList.toggle('on', l==='en');
-    langES.classList.toggle('on', l==='es');
-    bookBtn.textContent = labels[l].book;
-    seePortfolio.textContent = labels[l].see;
-    portfolioHeading.textContent = labels[l].portfolio;
-    aftercareHeading.textContent = labels[l].aftercare;
+    enBtn.classList.toggle('on',l==='en'); esBtn.classList.toggle('on',l==='es');
+    t('bookBtn').textContent=map[l].book;
+    t('seePortfolio').textContent=map[l].see;
+    t('portfolioHeading').textContent=map[l].portfolio;
+    t('aftercareHeading').textContent=map[l].aftercare;
   }
-
-  function render(data){
-    title.textContent = data.title || title.textContent;
-    subtitle.textContent = data.subtitle || subtitle.textContent;
-    if(data.instagram){
-      const user = data.instagram.replace(/^@/,'');
-      igLink.textContent='@'+user;
-      igLink.href='https://instagram.com/'+user;
-    }
-    if(data.whatsapp){
-      const num = (''+data.whatsapp).replace(/[^0-9]/g,'');
-      const msg = encodeURIComponent(data.whatsapp_message || 'Hi! I want to book a tattoo. Date: [MM/DD], Size/placement: [details].');
-      const url = 'https://wa.me/'+num+'?text='+msg;
-      waLink.href=url;
-      bookBtn.href=url;
-    }
-    // Gallery
-    gallery.innerHTML='';
-    (data.gallery||[]).forEach(item=>{
-      const src = typeof item==='string'? item : item.image;
-      const alt = typeof item==='string'? '' : (item.alt||'');
-      if(!src) return;
-      const card=document.createElement('article'); card.className='card';
-      const img=document.createElement('img'); img.loading='lazy'; img.src=src; img.alt=alt;
-      card.appendChild(img); if(alt){const c=document.createElement('div'); c.className='caption'; c.textContent=alt; card.appendChild(c);}
-      gallery.appendChild(card);
-    });
-    // Aftercare
-    aftercare.innerHTML='';
-    const list = document.createElement('ul');
-    (data.aftercare||[]).forEach(step=>{
-      const li=document.createElement('li'); li.textContent = step; list.appendChild(li);
-    });
-    aftercare.appendChild(list);
-  }
-
   async function load(l){
     applyLang(l);
     try{
-      const res = await fetch('/content/site.'+l+'.json?nocache='+Date.now());
-      const data = await res.json();
-      render(data);
+      const res=await fetch('/content/site.'+l+'.json?__='+Date.now());
+      const data=await res.json();
+      // text
+      t('title').textContent=data.title||t('title').textContent;
+      t('subtitle').textContent=data.subtitle||t('subtitle').textContent;
+      // IG
+      if(data.instagram){
+        const user=(''+data.instagram).replace(/^@/,'');
+        const ig=$('#igLink'); ig.textContent='@'+user; ig.href='https://instagram.com/'+user;
+      }
+      // WhatsApp + booking
+      let waNumber=(data.whatsapp||'').toString().replace(/[^0-9]/g,'');
+      let waMsg=(data.whatsapp_message||'').toString();
+      const waURL= waNumber ? ('https://wa.me/'+waNumber+(waMsg?('?text='+encodeURIComponent(waMsg)):'') ) : '#';
+      const wa=$('#waLink'); wa.href=waURL;
+      const bookBtn=$('#bookBtn');
+      if (data.booking_url){ bookBtn.href=data.booking_url; }
+      else { bookBtn.href=waURL; }
+      // gallery
+      const grid=$('#portfolio'); grid.innerHTML='';
+      (data.gallery||[]).forEach(item=>{
+        const src = typeof item==='string' ? item : item.image;
+        const alt = typeof item==='string' ? '' : (item.alt||'');
+        if(!src) return;
+        const card=document.createElement('article'); card.className='card';
+        const img=document.createElement('img'); img.loading='lazy'; img.src=src; img.alt=alt;
+        card.appendChild(img);
+        if(alt){ const cap=document.createElement('div'); cap.className='caption'; cap.textContent=alt; card.appendChild(cap); }
+        grid.appendChild(card);
+      });
+      // aftercare
+      const ac=$('#aftercare'); ac.innerHTML='';
+      (data.aftercare||[]).forEach((s,i)=>{
+        const div=document.createElement('div'); div.className='step';
+        div.textContent=(i+1)+'. '+s; ac.appendChild(div);
+      });
     }catch(e){ console.error(e); }
   }
-
-  langEN.addEventListener('click',()=>{ setLang('en'); load('en'); });
-  langES.addEventListener('click',()=>{ setLang('es'); load('es'); });
-
-  const lang = getLang(); applyLang(lang); load(lang);
+  enBtn.addEventListener('click',()=>{ setLang('en'); load('en'); });
+  esBtn.addEventListener('click',()=>{ setLang('es'); load('es'); });
+  load(getLang());
 })();

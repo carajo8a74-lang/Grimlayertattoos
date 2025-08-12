@@ -2,19 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Grimlayer Admin</title>
-  <!-- Netlify Identity (login modal) -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <!-- Decap CMS app -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
-    // Force Identity to use your custom domain (fixes cookies on mobile)
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.init({ APIUrl: 'https://grimlayertattoo.com/.netlify/identity' });
-      window.netlifyIdentity.on('init', (user) => { if (!user) window.netlifyIdentity.open(); });
+      var apiUrl = window.location.origin + "/.netlify/identity";
+      window.netlifyIdentity.init({ APIUrl: apiUrl });
+      window.netlifyIdentity.on("init", user => { if (!user) window.netlifyIdentity.open(); });
     }
   </script>
 </body>

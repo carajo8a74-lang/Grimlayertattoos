@@ -19,18 +19,19 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Subtitle", name: "subtitle", widget: "string" }
           - { label: "Instagram", name: "instagram", widget: "string" }
-          - { label: "WhatsApp (digits only)", name: "whatsapp", widget: "string" }
-          - { label: "WhatsApp message", name: "whatsapp_message", widget: "text", default: "Hi! I want to book a tattoo. Date: [MM/DD], Size/placement: [details]." }
-          - label: "Aftercare (list)"
-            name: "aftercare"
-            widget: "list"
-            field: { label: "Step", name: "step", widget: "string" }
+          - { label: "WhatsApp (numbers only)", name: "whatsapp", widget: "string", hint: "e.g. 3059155560" }
+          - { label: "WhatsApp Message", name: "whatsapp_message", widget: "text", required: false }
+          - { label: "Booking URL (optional)", name: "booking_url", widget: "string", required: false }
           - label: "Gallery"
             name: "gallery"
             widget: "list"
             fields:
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Alt", name: "alt", widget: "string", required: false }
+          - label: "Aftercare steps"
+            name: "aftercare"
+            widget: "list"
+            field: { label: "Step", name: "step", widget: "string" }
 
   - name: "site_es"
     label: "Sitio (Español)"
@@ -43,14 +44,15 @@ collections:
           - { label: "Subtítulo", name: "subtitle", widget: "string" }
           - { label: "Instagram", name: "instagram", widget: "string" }
           - { label: "WhatsApp (solo números)", name: "whatsapp", widget: "string" }
-          - { label: "Mensaje de WhatsApp", name: "whatsapp_message", widget: "text", default: "Hola, quiero reservar un tatuaje. Fecha: [DD/MM], Tamaño/zona: [detalles]." }
-          - label: "Aftercare (lista)"
-            name: "aftercare"
-            widget: "list"
-            field: { label: "Paso", name: "step", widget: "string" }
+          - { label: "Mensaje de WhatsApp", name: "whatsapp_message", widget: "text", required: false }
+          - { label: "URL de reservas (opcional)", name: "booking_url", widget: "string", required: false }
           - label: "Galería"
             name: "gallery"
             widget: "list"
             fields:
               - { label: "Imagen", name: "image", widget: "image" }
               - { label: "Alt", name: "alt", widget: "string", required: false }
+          - label: "Aftercare (pasos)"
+            name: "aftercare"
+            widget: "list"
+            field: { label: "Paso", name: "step", widget: "string" }

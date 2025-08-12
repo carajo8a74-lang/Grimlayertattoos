@@ -3,14 +3,8 @@
   "subtitle": "Reserva online y aftercare con membrana protectora (Saniderm/Emalla).",
   "instagram": "@grimlayertattoo",
   "whatsapp": "3059155560",
-  "whatsapp_message": "Hola, quiero reservar un tatuaje. Fecha: [DD/MM], Tamaño/zona: [detalles].",
-  "aftercare": [
-    "Lávate las manos antes de tocar el área.",
-    "Mantén la membrana protectora por 7 días (Saniderm/Emalla).",
-    "Si hay exceso de plasma, cambia la membrana a las 24–48 horas.",
-    "Evita piscina/sauna/sol directo durante los 7 días.",
-    "Al día 7, retira, lava suave, seca a toques y aplica crema fina 2–3×/día por una semana."
-  ],
+  "whatsapp_message": "Hola, quiero reservar una cita de tatuaje con Grimlayer. Te encontré por la web.",
+  "booking_url": "",
   "gallery": [
     {
       "image": "/assets/portfolio/1.jpg",
@@ -24,5 +18,12 @@
       "image": "/assets/portfolio/3.jpg",
       "alt": "Blackwork con motivos clásicos"
     }
+  ],
+  "aftercare": [
+    "Deja la membrana protectora (Saniderm/Emalla) durante 7 días.",
+    "Dúchate normal; seca con golpecitos. No sumerjas.",
+    "Al retirar la membrana, lava con jabón antibacterial y aplica una capa fina de crema sin perfume.",
+    "Evita sol, piscinas, fricción de gimnasio y ropa ajustada hasta sanar.",
+    "No retires costras ni rasques. Si hay irritación, contáctanos."
   ]
 }
