@@ -1,29 +1,17 @@
 {
-  "title": "High‑detail tattoos in Tampa",
+  "title": "High\u2011detail tattoos in Tampa",
   "subtitle": "Online booking and aftercare with protective film (Saniderm/Emalla).",
   "instagram": "@grimlayertattoo",
-  "whatsapp": "3059155560",
-  "whatsapp_message": "Hey! I’d like to book a tattoo with Grimlayer. I found you via the website.",
-  "booking_url": "",
+  "whatsapp": "13059155560",
+  "whatsapp_message": "Hi! I'd like to book a tattoo session. My availability is...",
   "gallery": [
-    {
-      "image": "/assets/portfolio/1.jpg",
-      "alt": "Dark spider/skull shoulder piece"
-    },
-    {
-      "image": "/assets/portfolio/2.jpg",
-      "alt": "Surreal forearm composition"
-    },
-    {
-      "image": "/assets/portfolio/3.jpg",
-      "alt": "Blackwork with classical motifs"
-    }
+    "/assets/portfolio/1.jpg",
+    "/assets/portfolio/2.jpg",
+    "/assets/portfolio/3.jpg"
   ],
   "aftercare": [
-    "Leave the protective film (Saniderm/Emalla) on for 7 days.",
-    "Shower normally; gently pat dry. Do not soak.",
-    "After removing film, wash with antibacterial soap and apply a thin layer of unscented moisturizer.",
-    "Avoid sun, pools, gym friction and tight clothing until fully healed.",
-    "Do not pick or scratch. If irritation persists, contact the studio."
+    "Keep the protective film on for 7 days (Saniderm/Emalla).",
+    "Avoid direct sun and heavy sweating while the film is on.",
+    "After removing: wash gently with neutral soap, pat dry, and moisturize."
   ]
 }

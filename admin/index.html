@@ -1,22 +1,19 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Grimlayer Admin</title>
-    <!-- Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <!-- Netlify Identity widget -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  </head>
-  <body>
-    <script>
-      // Force Identity to your custom domain to avoid auth loops
-      const API_URL = "https://grimlayertattoo.com/.netlify/identity";
-      if (window.netlifyIdentity) {
-        try { window.netlifyIdentity.setAPIUrl(API_URL); } catch(e) {}
-        window.netlifyIdentity.on("init", user => { if (!user) window.netlifyIdentity.open(); });
-      }
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Grimlayer Admin</title>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <script>
+    const API_URL = "https://grimlayertattoo.com/.netlify/identity";
+    if (window.netlifyIdentity) {
+      try { window.netlifyIdentity.setAPIUrl(API_URL); } catch(e) {}
+      window.netlifyIdentity.on('init', user => { if (!user) window.netlifyIdentity.open(); });
+    }
+  </script>
+</body>
 </html>

@@ -1,71 +1,36 @@
 (function(){
-  const $ = (s)=>document.querySelector(s);
-  $('#year').textContent = new Date().getFullYear();
-  const enBtn=$('#langEN'), esBtn=$('#langES');
-  const t=$=>document.getElementById($);
-  const map={
-    en:{book:'Book now',see:'See portfolio',portfolio:'Portfolio',aftercare:'Aftercare'},
-    es:{book:'Reservar ahora',see:'Ver portafolio',portfolio:'Portafolio',aftercare:'Aftercare'}
-  };
-  function getLang(){
-    const p=new URLSearchParams(location.search);
-    const x=(p.get('lang')||localStorage.getItem('lang')||'en').toLowerCase();
-    return x.startsWith('es')?'es':'en';
-  }
-  function setLang(l){
-    localStorage.setItem('lang',l);
-    const p=new URLSearchParams(location.search); p.set('lang',l);
-    history.replaceState(null,'','?'+p.toString());
-  }
-  function applyLang(l){
-    enBtn.classList.toggle('on',l==='en'); esBtn.classList.toggle('on',l==='es');
-    t('bookBtn').textContent=map[l].book;
-    t('seePortfolio').textContent=map[l].see;
-    t('portfolioHeading').textContent=map[l].portfolio;
-    t('aftercareHeading').textContent=map[l].aftercare;
-  }
+  const YEAR = document.getElementById('year'); if(YEAR) YEAR.textContent = new Date().getFullYear();
+  const EN = document.getElementById('langEN'), ES = document.getElementById('langES');
+  const title = document.getElementById('title'), subtitle = document.getElementById('subtitle');
+  const ig = document.getElementById('igLink'), wa = document.getElementById('waLink'), book = document.getElementById('bookBtn');
+  const see = document.getElementById('seePortfolio'), portH = document.getElementById('portfolioHeading'), afterH = document.getElementById('aftercareHeading');
+  const portfolio = document.getElementById('portfolio'), aftercare = document.getElementById('aftercare');
+
+  const labels = { en:{book:'Book now',see:'See portfolio',port:'Portfolio',after:'Aftercare'},
+                   es:{book:'Reservar ahora',see:'Ver portafolio',port:'Portafolio',after:'Aftercare'} };
+
+  function getLang(){ const q=new URLSearchParams(location.search); const l=(q.get('lang')||localStorage.getItem('lang')||'en').toLowerCase(); return l.startsWith('es')?'es':'en'; }
+  function setLang(l){ localStorage.setItem('lang',l); const q=new URLSearchParams(location.search); q.set('lang',l); history.replaceState(null,'','?'+q.toString()); }
+
+  function applyLang(l){ EN.classList.toggle('on',l==='en'); ES.classList.toggle('on',l==='es');
+    if(see) see.textContent = labels[l].see; if(portH) portH.textContent = labels[l].port; if(afterH) afterH.textContent = labels[l].after; }
+
   async function load(l){
-    applyLang(l);
     try{
-      const res=await fetch('/content/site.'+l+'.json?__='+Date.now());
-      const data=await res.json();
-      // text
-      t('title').textContent=data.title||t('title').textContent;
-      t('subtitle').textContent=data.subtitle||t('subtitle').textContent;
-      // IG
-      if(data.instagram){
-        const user=(''+data.instagram).replace(/^@/,'');
-        const ig=$('#igLink'); ig.textContent='@'+user; ig.href='https://instagram.com/'+user;
-      }
-      // WhatsApp + booking
-      let waNumber=(data.whatsapp||'').toString().replace(/[^0-9]/g,'');
-      let waMsg=(data.whatsapp_message||'').toString();
-      const waURL= waNumber ? ('https://wa.me/'+waNumber+(waMsg?('?text='+encodeURIComponent(waMsg)):'') ) : '#';
-      const wa=$('#waLink'); wa.href=waURL;
-      const bookBtn=$('#bookBtn');
-      if (data.booking_url){ bookBtn.href=data.booking_url; }
-      else { bookBtn.href=waURL; }
-      // gallery
-      const grid=$('#portfolio'); grid.innerHTML='';
-      (data.gallery||[]).forEach(item=>{
-        const src = typeof item==='string' ? item : item.image;
-        const alt = typeof item==='string' ? '' : (item.alt||'');
-        if(!src) return;
-        const card=document.createElement('article'); card.className='card';
-        const img=document.createElement('img'); img.loading='lazy'; img.src=src; img.alt=alt;
-        card.appendChild(img);
-        if(alt){ const cap=document.createElement('div'); cap.className='caption'; cap.textContent=alt; card.appendChild(cap); }
-        grid.appendChild(card);
-      });
-      // aftercare
-      const ac=$('#aftercare'); ac.innerHTML='';
-      (data.aftercare||[]).forEach((s,i)=>{
-        const div=document.createElement('div'); div.className='step';
-        div.textContent=(i+1)+'. '+s; ac.appendChild(div);
-      });
-    }catch(e){ console.error(e); }
+      const res = await fetch('/content/site.'+l+'.json?nocache='+Date.now()); const data = await res.json();
+      if(title && data.title) title.textContent=data.title; if(subtitle && data.subtitle) subtitle.textContent=data.subtitle;
+      if(ig && data.instagram){ const u=data.instagram.replace(/^@/,''); ig.textContent='@'+u; ig.href='https://instagram.com/'+u; }
+      if(wa && data.whatsapp){ const num=(''+data.whatsapp).replace(/\D/g,''); wa.href='https://wa.me/'+num+(data.whatsapp_message?('?text='+encodeURIComponent(data.whatsapp_message)):''); }
+      if(book && data.whatsapp){ const num=(''+data.whatsapp).replace(/\D/g,''); book.href='https://wa.me/'+num+(data.whatsapp_message?('?text='+encodeURIComponent(data.whatsapp_message)):''); }
+      if(portfolio){ portfolio.innerHTML=''; (data.gallery||[]).forEach(item=>{ const src=(typeof item==='string')?item:item.image; const alt=(typeof item==='string')?'':(item.alt||''); if(!src) return;
+        const a=document.createElement('article'); a.className='card'; const img=document.createElement('img'); img.loading='lazy'; img.src=src; img.alt=alt; a.appendChild(img);
+        if(alt){ const c=document.createElement('div'); c.className='caption'; c.textContent=alt; a.appendChild(c);} portfolio.appendChild(a); }); }
+      if(aftercare){ aftercare.innerHTML=''; (data.aftercare||[]).forEach(step=>{ const div=document.createElement('div'); div.className='step'; div.textContent = (typeof step==='string')?step:(step.step||''); aftercare.appendChild(div); }); }
+    }catch(e){ console.error('Content load failed', e); }
   }
-  enBtn.addEventListener('click',()=>{ setLang('en'); load('en'); });
-  esBtn.addEventListener('click',()=>{ setLang('es'); load('es'); });
-  load(getLang());
+
+  EN && EN.addEventListener('click',()=>{ setLang('en'); applyLang('en'); load('en'); });
+  ES && ES.addEventListener('click',()=>{ setLang('es'); applyLang('es'); load('es'); });
+
+  const lang = getLang(); applyLang(lang); load(lang);
 })();
