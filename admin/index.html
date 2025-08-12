@@ -1,22 +1,20 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Grimlayer Admin</title>
-  <!-- Login widget (Netlify Identity) -->
-  <script src="https://unpkg.com/netlify-identity-widget@1.9.2/build/netlify-identity-widget.js"></script>
+  <!-- Netlify Identity (login modal) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <!-- CMS app (Decap/Netlify CMS) -->
+  <!-- Decap CMS app -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
-    // Abre el modal de login si no hay sesión
+    // Force Identity to use your custom domain (fixes cookies on mobile)
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', (user) => {
-        if (!user) window.netlifyIdentity.open();
-      });
-      window.netlifyIdentity.init();
+      window.netlifyIdentity.init({ APIUrl: 'https://grimlayertattoo.com/.netlify/identity' });
+      window.netlifyIdentity.on('init', (user) => { if (!user) window.netlifyIdentity.open(); });
     }
   </script>
 </body>

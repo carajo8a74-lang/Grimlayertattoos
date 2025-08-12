@@ -9,12 +9,30 @@ media_folder: "assets/portfolio"
 public_folder: "/assets/portfolio"
 
 collections:
-  - name: "site"
-    label: "Sitio"
+  - name: "site_en"
+    label: "Site (English)"
     files:
-      - file: "content/site.json"
-        label: "Contenido principal"
-        name: "site"
+      - file: "content/site.en.json"
+        label: "Main content (EN)"
+        name: "site_en"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Instagram", name: "instagram", widget: "string" }
+          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+          - label: "Gallery"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Alt", name: "alt", widget: "string", required: false }
+
+  - name: "site_es"
+    label: "Sitio (Español)"
+    files:
+      - file: "content/site.es.json"
+        label: "Contenido principal (ES)"
+        name: "site_es"
         fields:
           - { label: "Título", name: "title", widget: "string" }
           - { label: "Subtítulo", name: "subtitle", widget: "string" }

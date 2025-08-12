@@ -1,23 +1,42 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Grimlayer Admin</title>
-  <!-- Login widget (Netlify Identity) -->
-  <script src="https://unpkg.com/netlify-identity-widget@1.9.2/build/netlify-identity-widget.js"></script>
+  <title>Grimlayer Tattoo — Portfolio & Booking</title>
+  <meta name="description" content="High‑detail tattoos in Tampa. Online booking and aftercare with protective film (Saniderm/Emalla)."/>
+  <link rel="stylesheet" href="/styles.css"/>
 </head>
 <body>
-  <!-- CMS app (Decap/Netlify CMS) -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <script>
-    // Abre el modal de login si no hay sesión
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', (user) => {
-        if (!user) window.netlifyIdentity.open();
-      });
-      window.netlifyIdentity.init();
-    }
-  </script>
+  <header class="topbar">
+    <div class="brand">Grimlayer Tattoo</div>
+    <nav class="actions">
+      <button id="langEN" class="chip on">EN</button>
+      <button id="langES" class="chip">ES</button>
+      <a id="igLink" class="btn ghost" rel="noopener" target="_blank">@grimlayertattoo</a>
+      <a id="waLink" class="btn" rel="noopener" target="_blank">WhatsApp</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 id="title">High‑detail tattoos in Tampa</h1>
+      <p id="subtitle" class="muted">Online booking and aftercare with protective film (Saniderm/Emalla).</p>
+      <div class="cta">
+        <a id="bookBtn" class="btn lg" target="_blank" rel="noopener">Book now</a>
+        <a href="#portfolio" class="btn ghost lg" id="seePortfolio">See portfolio</a>
+      </div>
+    </section>
+
+    <h2 class="h2" id="portfolioHeading">Portfolio</h2>
+    <section id="portfolio" class="gallery"></section>
+  </main>
+
+  <footer class="footer">
+    <small>© <span id="year"></span> Grimlayer Tattoo</small>
+    <a href="/admin/" class="muted small">Admin</a>
+  </footer>
+
+  <script src="/app.js"></script>
 </body>
 </html>

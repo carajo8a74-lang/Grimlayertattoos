@@ -1,16 +1,75 @@
-(async()=>{
- const res=await fetch('/content/site.json',{cache:'no-cache'});
- const d=await res.json();
- document.getElementById('heroTitle').textContent=d.hero_title;
- document.getElementById('heroSub').textContent=d.hero_sub;
- const ig=(d.instagram||'').replace(/^@/,'');
- const wa=d.whatsapp||'';
- const msg=encodeURIComponent('Hola! Quiero reservar un tatuaje. Fecha ideal: __ . Zona: __ .');
- document.getElementById('instaLink').href='https://instagram.com/'+ig;
- document.getElementById('instaLink').textContent='@'+ig;
- document.getElementById('waLink').href='https://wa.me/'+wa+'?text='+msg;
- document.getElementById('waCTA').href='https://wa.me/'+wa+'?text='+msg;
- const g=document.getElementById('gallery'); g.innerHTML='';
- (d.gallery||[]).forEach(src=>{const img=new Image(); img.src=src; img.loading='lazy'; g.appendChild(img);});
- document.getElementById('year').textContent=new Date().getFullYear();
+(function(){
+  const YEAR = document.getElementById('year'); YEAR.textContent = new Date().getFullYear();
+  const langEN = document.getElementById('langEN');
+  const langES = document.getElementById('langES');
+  const title = document.getElementById('title');
+  const subtitle = document.getElementById('subtitle');
+  const igLink = document.getElementById('igLink');
+  const waLink = document.getElementById('waLink');
+  const bookBtn = document.getElementById('bookBtn');
+  const seePortfolio = document.getElementById('seePortfolio');
+  const portfolioHeading = document.getElementById('portfolioHeading');
+  const gallery = document.querySelector('.gallery');
+
+  const labels = {
+    en: { book:'Book now', see:'See portfolio', portfolio:'Portfolio' },
+    es: { book:'Reservar ahora', see:'Ver portafolio', portfolio:'Portafolio' },
+  };
+
+  function getLang(){
+    const q = new URLSearchParams(location.search);
+    return (q.get('lang')||localStorage.getItem('lang')||'en').toLowerCase().startsWith('es')?'es':'en';
+  }
+  function setLang(l){
+    localStorage.setItem('lang', l);
+    const q = new URLSearchParams(location.search); q.set('lang',l);
+    history.replaceState(null,'','?'+q.toString());
+  }
+
+  function applyLang(l){
+    langEN.classList.toggle('on', l==='en');
+    langES.classList.toggle('on', l==='es');
+    bookBtn.textContent = labels[l].book;
+    seePortfolio.textContent = labels[l].see;
+    portfolioHeading.textContent = labels[l].portfolio;
+  }
+
+  function render(data){
+    title.textContent = data.title || title.textContent;
+    subtitle.textContent = data.subtitle || subtitle.textContent;
+    if(data.instagram){
+      const user = data.instagram.replace(/^@/,'');
+      igLink.textContent='@'+user;
+      igLink.href='https://instagram.com/'+user;
+    }
+    if(data.whatsapp){
+      const num = (''+data.whatsapp).replace(/[^0-9]/g,'');
+      waLink.href='https://wa.me/'+num;
+      bookBtn.href='https://wa.me/'+num;
+    }
+    gallery.innerHTML='';
+    (data.gallery||[]).forEach(item=>{
+      const src = typeof item==='string'? item : item.image;
+      const alt = typeof item==='string'? '' : (item.alt||'');
+      if(!src) return;
+      const card=document.createElement('article'); card.className='card';
+      const img=document.createElement('img'); img.loading='lazy'; img.src=src; img.alt=alt;
+      card.appendChild(img); if(alt){const c=document.createElement('div'); c.className='caption'; c.textContent=alt; card.appendChild(c);}
+      gallery.appendChild(card);
+    });
+  }
+
+  async function load(l){
+    applyLang(l);
+    try{
+      const res = await fetch('/content/site.'+l+'.json?nocache='+Date.now());
+      const data = await res.json();
+      render(data);
+    }catch(e){ console.error(e); }
+  }
+
+  langEN.addEventListener('click',()=>{ setLang('en'); load('en'); });
+  langES.addEventListener('click',()=>{ setLang('es'); load('es'); });
+
+  const lang = getLang(); applyLang(lang); load(lang);
 })();
