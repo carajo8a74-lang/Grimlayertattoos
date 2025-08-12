@@ -3,31 +3,48 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Grimlayer Admin Test</title>
-  <meta name="description" content="Temporary admin test landing."/>
-  <style>
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-         background:#0b0d10;color:#e8eef4;display:grid;place-items:center;height:100dvh}
-    .card{padding:28px 32px;background:#11161c;border:1px solid #1e2833;border-radius:12px;
-          box-shadow:0 6px 28px rgba(0,0,0,.35);max-width:720px}
-    h1{margin:0 0 6px;font-size:22px}
-    p{opacity:.8;margin:0 0 16px}
-    a.btn{display:inline-block;padding:10px 14px;border-radius:10px;background:#3b82f6;color:#fff;
-          text-decoration:none;font-weight:600}
-    .row{display:flex;gap:12px;flex-wrap:wrap}
-    code{background:#0b1218;padding:2px 6px;border-radius:6px;border:1px solid #1d2833}
-    footer{position:fixed;bottom:10px;opacity:.5;font-size:12px}
-  </style>
+  <title>Grimlayer Tattoo — Tampa</title>
+  <meta name="description" content="High‑detail tattoos in Tampa. Online booking and aftercare with protective film (Saniderm/Emalla)."/>
+  <link rel="stylesheet" href="/styles.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-  <div class="card">
-    <h1>Admin test</h1>
-    <p>Use the buttons below. If Admin fails, open <code>/admin/health.html</code> and share results.</p>
-    <div class="row">
-      <a class="btn" href="/admin/">Open Admin</a>
-      <a class="btn" href="/admin/health.html">Run Health Check</a>
-    </div>
-  </div>
-  <footer>© 2025 Grimlayer Tattoo – temporary diagnostics</footer>
+  <header class="topbar">
+    <div class="brand">Grimlayer Tattoo</div>
+    <nav class="nav">
+      <button id="langEN" class="chip on">EN</button>
+      <button id="langES" class="chip">ES</button>
+      <a id="igLink" class="link" target="_blank" rel="noopener">@grimlayertattoo</a>
+      <a id="waLink" class="btn" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn ghost" href="/admin/">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 id="title">High‑detail tattoos in Tampa</h1>
+      <p id="subtitle" class="muted">Online booking and aftercare with protective film (Saniderm/Emalla).</p>
+      <div class="cta">
+        <a id="bookBtn" class="btn lg" target="_blank" rel="noopener">Book now</a>
+        <a href="#portfolio" class="btn ghost lg" id="seePortfolio">See portfolio</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 id="portfolioHeading" class="h2">Portfolio</h2>
+      <div id="portfolio" class="gallery"></div>
+    </section>
+
+    <section class="section">
+      <h2 id="aftercareHeading" class="h2">Aftercare</h2>
+      <div id="aftercare" class="aftercare"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>© <span id="year"></span> Grimlayer Tattoo</small>
+  </footer>
+
+  <script src="/app.js"></script>
 </body>
 </html>

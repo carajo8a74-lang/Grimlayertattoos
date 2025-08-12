@@ -1,7 +1,8 @@
 backend:
   name: git-gateway
-  repo: carajo8a74-lang/Grimlayertattoos
   branch: main
+  identity_url: https://grimlayertattoo.com/.netlify/identity
+  gateway_url: https://grimlayertattoo.com/.netlify/git
 
 site_url: https://grimlayertattoo.com
 display_url: https://grimlayertattoo.com
@@ -10,22 +11,34 @@ media_folder: "assets/portfolio"
 public_folder: "/assets/portfolio"
 
 collections:
-  - name: "site"
-    label: "Site"
-    files:
-      - file: "content/site.json"
-        label: "Main Content"
-        name: "site"
+  - name: "site_en"
+    label: "Homepage (EN)"
+    file: "content/site.en.json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string" }
+      - { label: "Instagram", name: "instagram", widget: "string" }
+      - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
         fields:
-          - { label: "Title (EN)", name: "title_en", widget: "string", default: "High-detail tattoos in Tampa" }
-          - { label: "Subtitle (EN)", name: "subtitle_en", widget: "string", default: "Online booking and aftercare with protective film (Saniderm/Emalla)." }
-          - { label: "Title (ES)", name: "title_es", widget: "string", default: "Tatuajes de alto detalle en Tampa" }
-          - { label: "Subtitle (ES)", name: "subtitle_es", widget: "string", default: "Reserva online y aftercare con membrana protectora (Saniderm/Emalla)." }
-          - { label: "Instagram", name: "instagram", widget: "string", default: "@grimlayertattoo" }
-          - { label: "WhatsApp URL", name: "whatsapp", widget: "string", default: "https://wa.me/1xxxxxxxxxx" }
-          - label: "Gallery"
-            name: "gallery"
-            widget: "list"
-            fields:
-              - { label: "Image", name: "image", widget: "image" }
-              - { label: "Alt", name: "alt", widget: "string", required: false }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Alt", name: "alt", widget: "string", required: false }
+      - { label: "Aftercare (markdown)", name: "aftercare_md", widget: "markdown" }
+
+  - name: "site_es"
+    label: "Inicio (ES)"
+    file: "content/site.es.json"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Subtítulo", name: "subtitle", widget: "string" }
+      - { label: "Instagram", name: "instagram", widget: "string" }
+      - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+      - label: "Galería"
+        name: "gallery"
+        widget: "list"
+        fields:
+          - { label: "Imagen", name: "image", widget: "image" }
+          - { label: "Alt", name: "alt", widget: "string", required: false }
+      - { label: "Aftercare (markdown)", name: "aftercare_md", widget: "markdown" }

@@ -1,20 +1,23 @@
 (() => {
   const $ = sel => document.querySelector(sel);
-  const setText = (id, text) => { const el = $(id); if (el) el.textContent = text; };
-  const setAttr = (id, attr, val) => { const el = $(id); if (el) el.setAttribute(attr, val); };
+  const setText = (sel, text) => { const el = $(sel); if (el) el.textContent = text; };
+  const setAttr = (sel, attr, val) => { const el = $(sel); if (el) el.setAttribute(attr, val); };
 
-  const state = { lang: localStorage.getItem('lang') || 'en', data: null };
+  const state = { lang: localStorage.getItem('lang') || 'en', en: null, es: null };
+
   $('#year').textContent = String(new Date().getFullYear());
 
   async function load() {
-    const res = await fetch('/content/site.json', { cache: 'no-store' });
-    state.data = await res.json();
+    const [en, es] = await Promise.all([
+      fetch('/content/site.en.json', { cache: 'no-store' }).then(r=>r.json()),
+      fetch('/content/site.es.json', { cache: 'no-store' }).then(r=>r.json())
+    ]);
+    state.en = en; state.es = es;
     render();
   }
 
   function render() {
-    const d = state.data;
-    const t = d[state.lang] || d['en'];
+    const t = state[state.lang] || state.en;
 
     setText('#title', t.title);
     setText('#subtitle', t.subtitle);
@@ -39,7 +42,7 @@
       div.appendChild(img); div.appendChild(cap); list.appendChild(div);
     });
 
-    $('#aftercare').innerHTML = t.aftercare_html || '';
+    $('#aftercare').innerHTML = marked.parse(t.aftercare_md || '');
   }
 
   $('#langEN').addEventListener('click', () => { state.lang='en'; localStorage.setItem('lang','en'); render(); });

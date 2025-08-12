@@ -1,17 +1,21 @@
 {
   "title": "Tatuajes de alto detalle en Tampa",
   "subtitle": "Reserva online y aftercare con membrana protectora (Saniderm/Emalla).",
-  "instagram": "@grimlayertattoo",
-  "whatsapp": "13059155560",
-  "whatsapp_message": "¡Hola! Quiero agendar una sesión. Mi disponibilidad es...",
+  "instagram": "https://instagram.com/grimlayertattoo",
+  "whatsapp": "https://wa.me/13059155560",
   "gallery": [
-    "/assets/portfolio/1.jpg",
-    "/assets/portfolio/2.jpg",
-    "/assets/portfolio/3.jpg"
+    {
+      "image": "/assets/portfolio/1.jpg",
+      "alt": "Pieza oscura de araña/calavera en hombro"
+    },
+    {
+      "image": "/assets/portfolio/2.jpg",
+      "alt": "Composición surrealista en antebrazo"
+    },
+    {
+      "image": "/assets/portfolio/3.jpg",
+      "alt": "Manga neoclásica"
+    }
   ],
-  "aftercare": [
-    "Mantén la membrana protectora 7 días (Saniderm/Emalla).",
-    "Evita sol directo y sudor intenso mientras esté puesta.",
-    "Al retirarla: lava suave con jabón neutro, seca sin frotar y humecta."
-  ]
+  "aftercare_md": "**Aftercare (membrana protectora 7 días)**\\n- Mantén Saniderm/Emalla **7 días**. Solo cambia si se despega.\\n- Evita sumergir (piscina, bañera, mar) mientras la membrana esté puesta.\\n- Al retirarla: lava suave, seca sin frotar, aplica crema fina 2–3× al día.\\n- Evita sol y ropa ajustada por 2 semanas."
 }
