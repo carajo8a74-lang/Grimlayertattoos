@@ -1,0 +1,9 @@
+[build]
+  publish = "."
+  command = ""
+
+# Single Page App fallback (if needed for /admin assets)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

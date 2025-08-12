@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+  branch: main
+
+site_url: https://www.grimlayertattoo.art
+
+media_folder: "assets/portfolio"
+public_folder: "/assets/portfolio"
+
+collections:
+  - name: "site"
+    label: "Contenido del sitio"
+    files:
+      - file: "content/site.json"
+        label: "Ajustes"
+        name: "site"
+        fields:
+          - {label: "Título", name: "hero_title", widget: "string"}
+          - {label: "Subtítulo", name: "hero_sub", widget: "text"}
+          - {label: "Instagram (sin @)", name: "instagram", widget: "string"}
+          - {label: "WhatsApp", name: "whatsapp", widget: "string"}
+          - label: "Galería"
+            name: "gallery"
+            widget: list
+            field: {label: "Imagen", name: "image", widget: "image"}
