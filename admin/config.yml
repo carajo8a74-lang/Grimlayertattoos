@@ -1,38 +1,42 @@
 backend:
   name: git-gateway
   branch: main
-  repo: carajo8a74-lang/Grimlayertattoos
 
 site_url: https://grimlayertattoo.com
 display_url: https://grimlayertattoo.com
 
-media_folder: "static/img"
-public_folder: "/img"
+media_folder: "assets/portfolio"
+public_folder: "/assets/portfolio"
+
+publish_mode: editorial_workflow
 
 collections:
-  - name: "portfolio"
-    label: "Portfolio"
-    folder: "content/portfolio"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Image", name: "image", widget: "image" }
-      - { label: "Description", name: "body", widget: "markdown" }
+  - name: site
+    label: Sitio
+    files:
+      - file: "content/site.json"
+        label: Contenido principal
+        name: site
+        fields:
+          - { label: "Título (EN)", name: "title_en", widget: "string", required: true }
+          - { label: "Subtítulo (EN)", name: "subtitle_en", widget: "text", required: true }
+          - { label: "Título (ES)", name: "title_es", widget: "string", required: true }
+          - { label: "Subtítulo (ES)", name: "subtitle_es", widget: "text", required: true }
+          - { label: "Instagram (handle @...)", name: "instagram", widget: "string" }
+          - { label: "WhatsApp (link completo)", name: "whatsapp", widget: "string" }
+          - label: "Galería"
+            name: "gallery"
+            widget: list
+            allow_add: true
+            fields:
+              - { label: "Imagen", name: "image", widget: "image" }
+              - { label: "Alt", name: "alt", widget: "string", required: false }
 
-  - name: "aftercare"
-    label: "Aftercare"
-    folder: "content/aftercare"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-
-  - name: "booking"
-    label: "Booking Info"
-    folder: "content/booking"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Message", name: "body", widget: "markdown" }
+  - name: aftercare
+    label: Aftercare
+    files:
+      - file: "content/aftercare.md"
+        label: Instrucciones
+        name: aftercare
+        fields:
+          - { label: "Contenido (Markdown)", name: "body", widget: "markdown" }
