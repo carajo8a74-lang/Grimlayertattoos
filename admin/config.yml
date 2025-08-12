@@ -1,31 +1,31 @@
 backend:
   name: git-gateway
-  branch: main
   repo: carajo8a74-lang/Grimlayertattoos
-
-media_folder: "static/images/uploads"
-public_folder: "/images/uploads"
+  branch: main
 
 site_url: https://grimlayertattoo.com
 display_url: https://grimlayertattoo.com
 
-collections:
-  - name: "appointments"
-    label: "Appointments"
-    folder: "content/appointments"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Client Name", name: "name", widget: "string" }
-      - { label: "Email", name: "email", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Tattoo Description", name: "description", widget: "text" }
+media_folder: "assets/portfolio"
+public_folder: "/assets/portfolio"
 
-  - name: "aftercare"
-    label: "Aftercare"
-    folder: "content/aftercare"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+collections:
+  - name: "site"
+    label: "Site"
+    files:
+      - file: "content/site.json"
+        label: "Main Content"
+        name: "site"
+        fields:
+          - { label: "Title (EN)", name: "title_en", widget: "string", default: "High-detail tattoos in Tampa" }
+          - { label: "Subtitle (EN)", name: "subtitle_en", widget: "string", default: "Online booking and aftercare with protective film (Saniderm/Emalla)." }
+          - { label: "Title (ES)", name: "title_es", widget: "string", default: "Tatuajes de alto detalle en Tampa" }
+          - { label: "Subtitle (ES)", name: "subtitle_es", widget: "string", default: "Reserva online y aftercare con membrana protectora (Saniderm/Emalla)." }
+          - { label: "Instagram", name: "instagram", widget: "string", default: "@grimlayertattoo" }
+          - { label: "WhatsApp URL", name: "whatsapp", widget: "string", default: "https://wa.me/1xxxxxxxxxx" }
+          - label: "Gallery"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Alt", name: "alt", widget: "string", required: false }
