@@ -1,2 +1,23 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Grimlayer Admin</title><script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script></head><body></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Grimlayer Admin</title>
+  <!-- Login widget (Netlify Identity) -->
+  <script src="https://unpkg.com/netlify-identity-widget@1.9.2/build/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <!-- CMS app (Decap/Netlify CMS) -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // Abre el modal de login si no hay sesión
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', (user) => {
+        if (!user) window.netlifyIdentity.open();
+      });
+      window.netlifyIdentity.init();
+    }
+  </script>
+</body>
+</html>
