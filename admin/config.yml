@@ -3,27 +3,29 @@ backend:
   branch: main
   repo: carajo8a74-lang/Grimlayertattoos
 
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
 site_url: https://grimlayertattoo.com
 display_url: https://grimlayertattoo.com
 
-media_folder: "assets/portfolio"
-public_folder: "/assets/portfolio"
-
 collections:
-  - name: "site"
-    label: "Site"
-    files:
-      - file: "content/site.json"
-        label: "Main content"
-        name: "site"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Subtitle", name: "subtitle", widget: "string" }
-          - { label: "Instagram", name: "instagram", widget: "string", required: false }
-          - { label: "WhatsApp", name: "whatsapp", widget: "string", required: false }
-          - label: "Gallery"
-            name: "gallery"
-            widget: "list"
-            fields:
-              - { label: "Image", name: "image", widget: "image" }
-              - { label: "Alt", name: "alt", widget: "string", required: false }
+  - name: "appointments"
+    label: "Appointments"
+    folder: "content/appointments"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Client Name", name: "name", widget: "string" }
+      - { label: "Email", name: "email", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Tattoo Description", name: "description", widget: "text" }
+
+  - name: "aftercare"
+    label: "Aftercare"
+    folder: "content/aftercare"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }

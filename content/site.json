@@ -1,20 +1,19 @@
 {
-  "title": "Grimlayer Tattoo \u2014 Tampa",
-  "subtitle": "High\u2011detail tattoos in Tampa. Online booking and aftercare with protective film (Saniderm/Emalla).",
+  "title_en": "Grimlayer Tattoo",
+  "subtitle_en": "Custom Tattoo Studio",
+  "title_es": "Grimlayer Tattoo",
+  "subtitle_es": "Estudio de Tatuajes Personalizados",
   "instagram": "@grimlayertattoo",
-  "whatsapp": "https://wa.me/",
-  "gallery": [
+  "whatsapp": "https://wa.me/13059155560",
+  "gallery": [],
+  "aftercare_en": [
     {
-      "image": "/assets/portfolio/1.jpg",
-      "alt": "Sample piece 1"
-    },
+      "step": "Leave Saniderm or Emalla membrane on for 7 days"
+    }
+  ],
+  "aftercare_es": [
     {
-      "image": "/assets/portfolio/2.jpg",
-      "alt": "Sample piece 2"
-    },
-    {
-      "image": "/assets/portfolio/3.jpg",
-      "alt": "Sample piece 3"
+      "step": "Dejar la membrana Saniderm o Emalla por 7 d\u00edas"
     }
   ]
 }

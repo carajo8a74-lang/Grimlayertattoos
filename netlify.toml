@@ -1,13 +1,7 @@
 [build]
-  publish = "."
+  publish = "/"
 
 [[redirects]]
-  from = "/admin"
-  to = "/admin/"
-  status = 301
-
-# Ensure config.yml is served with correct MIME (Netlify usually does this automatically)
-[[headers]]
-  for = "/admin/config.yml"
-  [headers.values]
-    Content-Type = "text/yaml"
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
