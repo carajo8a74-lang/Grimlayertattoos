@@ -2,15 +2,14 @@ backend:
   name: git-gateway
   branch: main
 
-site_url: https://grimlayertattoo.com
-display_url: https://grimlayertattoo.com
-
 media_folder: "assets/portfolio"
 public_folder: "/assets/portfolio"
 
 collections:
   - name: "site_en"
     label: "Site (English)"
+    delete: false
+    editor: { preview: false }
     files:
       - file: "content/site.en.json"
         label: "Main content (EN)"
@@ -18,9 +17,9 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Subtitle", name: "subtitle", widget: "string" }
-          - { label: "Instagram", name: "instagram", widget: "string" }
-          - { label: "WhatsApp (numbers only)", name: "whatsapp", widget: "string", hint: "e.g. 3059155560" }
-          - { label: "WhatsApp Message", name: "whatsapp_message", widget: "text", required: false }
+          - { label: "Instagram", name: "instagram", widget: "string", required: false }
+          - { label: "WhatsApp (digits only, e.g. 13059155560)", name: "whatsapp", widget: "string" }
+          - { label: "WhatsApp Message", name: "whatsapp_message", widget: "text" }
           - { label: "Booking URL (optional)", name: "booking_url", widget: "string", required: false }
           - label: "Gallery"
             name: "gallery"
@@ -28,13 +27,15 @@ collections:
             fields:
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Alt", name: "alt", widget: "string", required: false }
-          - label: "Aftercare steps"
+          - label: "Aftercare"
             name: "aftercare"
             widget: "list"
             field: { label: "Step", name: "step", widget: "string" }
 
   - name: "site_es"
     label: "Sitio (Español)"
+    delete: false
+    editor: { preview: false }
     files:
       - file: "content/site.es.json"
         label: "Contenido principal (ES)"
@@ -42,9 +43,9 @@ collections:
         fields:
           - { label: "Título", name: "title", widget: "string" }
           - { label: "Subtítulo", name: "subtitle", widget: "string" }
-          - { label: "Instagram", name: "instagram", widget: "string" }
-          - { label: "WhatsApp (solo números)", name: "whatsapp", widget: "string" }
-          - { label: "Mensaje de WhatsApp", name: "whatsapp_message", widget: "text", required: false }
+          - { label: "Instagram", name: "instagram", widget: "string", required: false }
+          - { label: "WhatsApp (solo números, ej: 13059155560)", name: "whatsapp", widget: "string" }
+          - { label: "Mensaje de WhatsApp", name: "whatsapp_message", widget: "text" }
           - { label: "URL de reservas (opcional)", name: "booking_url", widget: "string", required: false }
           - label: "Galería"
             name: "gallery"
@@ -52,7 +53,7 @@ collections:
             fields:
               - { label: "Imagen", name: "image", widget: "image" }
               - { label: "Alt", name: "alt", widget: "string", required: false }
-          - label: "Aftercare (pasos)"
+          - label: "Aftercare"
             name: "aftercare"
             widget: "list"
             field: { label: "Paso", name: "step", widget: "string" }
