@@ -1,28 +1,11 @@
 backend:
   name: git-gateway
   branch: main
+  site_domain: grimlayertattoo.com
+  identity_url: "https://grimlayertattoo.com/.netlify/identity"
+  gateway_url: "https://grimlayertattoo.com/.netlify/git"
 
-site_url: https://grimlayertattoo.com
-display_url: https://grimlayertattoo.com
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
 
-media_folder: "assets/portfolio"
-public_folder: "/assets/portfolio"
-
-collections:
-  - name: "site"
-    label: "Sitio"
-    files:
-      - file: "content/site.json"
-        label: "Contenido principal"
-        name: "site"
-        fields:
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Subtítulo", name: "subtitle", widget: "string" }
-          - { label: "Instagram", name: "instagram", widget: "string" }
-          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
-          - label: "Galería"
-            name: "gallery"
-            widget: "list"
-            fields:
-              - { label: "Imagen", name: "image", widget: "image" }
-              - { label: "Alt", name: "alt", widget: "string", required: false }
+locale: en
