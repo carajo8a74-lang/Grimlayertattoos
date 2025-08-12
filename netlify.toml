@@ -1,6 +1,4 @@
-# Ensure /admin works with and without trailing slash
 [[redirects]]
   from = "/admin"
-  to   = "/admin/"
+  to = "/admin/"
   status = 301
-  force = true
