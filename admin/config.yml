@@ -8,35 +8,34 @@ display_url: https://grimlayertattoo.com
 media_folder: "assets/portfolio"
 public_folder: "/assets/portfolio"
 
-publish_mode: editorial_workflow
-
 collections:
-  - name: site
-    label: Sitio
+  - name: "site"
+    label: "Site / Sitio"
     files:
       - file: "content/site.json"
-        label: Contenido principal
-        name: site
+        label: "Main content / Contenido principal"
+        name: "site"
         fields:
-          - { label: "Título (EN)", name: "title_en", widget: "string", required: true }
-          - { label: "Subtítulo (EN)", name: "subtitle_en", widget: "text", required: true }
-          - { label: "Título (ES)", name: "title_es", widget: "string", required: true }
-          - { label: "Subtítulo (ES)", name: "subtitle_es", widget: "text", required: true }
-          - { label: "Instagram (handle @...)", name: "instagram", widget: "string" }
-          - { label: "WhatsApp (link completo)", name: "whatsapp", widget: "string" }
-          - label: "Galería"
-            name: "gallery"
-            widget: list
-            allow_add: true
+          - { label: "Title (EN)", name: "en.title", widget: "string" }
+          - { label: "Subtitle (EN)", name: "en.subtitle", widget: "string" }
+          - { label: "Instagram (EN)", name: "en.instagram", widget: "string" }
+          - { label: "WhatsApp (EN)", name: "en.whatsapp", widget: "string" }
+          - label: "Gallery (EN)"
+            name: "en.gallery"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Alt", name: "alt", widget: "string", required: false }
+          - { label: "Aftercare (EN) — HTML allowed", name: "en.aftercare_html", widget: "text" }
+
+          - { label: "Título (ES)", name: "es.title", widget: "string" }
+          - { label: "Subtítulo (ES)", name: "es.subtitle", widget: "string" }
+          - { label: "Instagram (ES)", name: "es.instagram", widget: "string" }
+          - { label: "WhatsApp (ES)", name: "es.whatsapp", widget: "string" }
+          - label: "Galería (ES)"
+            name: "es.gallery"
+            widget: "list"
             fields:
               - { label: "Imagen", name: "image", widget: "image" }
               - { label: "Alt", name: "alt", widget: "string", required: false }
-
-  - name: aftercare
-    label: Aftercare
-    files:
-      - file: "content/aftercare.md"
-        label: Instrucciones
-        name: aftercare
-        fields:
-          - { label: "Contenido (Markdown)", name: "body", widget: "markdown" }
+          - { label: "Aftercare (ES) — HTML permitido", name: "es.aftercare_html", widget: "text" }

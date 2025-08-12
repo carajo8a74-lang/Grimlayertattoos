@@ -1,11 +1,44 @@
 {
-  "title": "Tatuajes de alto detalle en Tampa",
-  "subtitle": "Reserva online y aftercare con membrana protectora (Saniderm/Emalla).",
-  "instagram": "grimlayertattoo",
-  "whatsapp": "13059155560",
-  "gallery": [
-    "/assets/portfolio/1.jpg",
-    "/assets/portfolio/2.jpg",
-    "/assets/portfolio/3.jpg"
-  ]
+  "en": {
+    "title": "High\u2011detail tattoos in Tampa",
+    "subtitle": "Online booking and aftercare with protective film (Saniderm/Emalla).",
+    "instagram": "https://instagram.com/grimlayertattoo",
+    "whatsapp": "https://wa.me/18133905580?text=Hi%20Grimlayer%20Tattoo",
+    "gallery": [
+      {
+        "image": "/assets/portfolio/1.jpg",
+        "alt": "Dark spider/skull shoulder piece"
+      },
+      {
+        "image": "/assets/portfolio/2.jpg",
+        "alt": "Surreal forearm composition"
+      },
+      {
+        "image": "/assets/portfolio/3.jpg",
+        "alt": "Classical statues sleeve"
+      }
+    ],
+    "aftercare_html": "<ol><li>Leave the protective film 24\u201348h.</li><li>Wash gently with neutral soap; pat dry.</li><li>Apply a thin layer of unscented moisturizer 2\u20133\u00d7 daily.</li><li>Avoid sun, pools, and tight clothes for 2 weeks.</li></ol>"
+  },
+  "es": {
+    "title": "Tatuajes de alto detalle en Tampa",
+    "subtitle": "Reserva online y aftercare con membrana protectora (Saniderm/Emalla).",
+    "instagram": "https://instagram.com/grimlayertattoo",
+    "whatsapp": "https://wa.me/18133905580?text=Hola%20Grimlayer%20Tattoo",
+    "gallery": [
+      {
+        "image": "/assets/portfolio/1.jpg",
+        "alt": "Ara\u00f1a/calavera en hombro"
+      },
+      {
+        "image": "/assets/portfolio/2.jpg",
+        "alt": "Composici\u00f3n surreal en antebrazo"
+      },
+      {
+        "image": "/assets/portfolio/3.jpg",
+        "alt": "Manga de estatuas cl\u00e1sicas"
+      }
+    ],
+    "aftercare_html": "<ol><li>Deja la membrana protectora 24\u201348h.</li><li>Lava con jab\u00f3n neutro; seca sin frotar.</li><li>Aplica una capa fina de crema 2\u20133\u00d7 al d\u00eda.</li><li>Evita sol, piscina y ropa ajustada por 2 semanas.</li></ol>"
+  }
 }
