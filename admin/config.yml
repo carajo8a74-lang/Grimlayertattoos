@@ -16,26 +16,25 @@ collections:
         label: "Main content / Contenido principal"
         name: "site"
         fields:
-          - { label: "Title (EN)", name: "en.title", widget: "string" }
-          - { label: "Subtitle (EN)", name: "en.subtitle", widget: "string" }
-          - { label: "Instagram (EN)", name: "en.instagram", widget: "string" }
-          - { label: "WhatsApp (EN)", name: "en.whatsapp", widget: "string" }
-          - label: "Gallery (EN)"
-            name: "en.gallery"
+          - { label: "Title (EN)", name: "title_en", widget: "string" }
+          - { label: "Subtitle (EN)", name: "subtitle_en", widget: "string" }
+          - { label: "Title (ES)", name: "title_es", widget: "string" }
+          - { label: "Subtitle (ES)", name: "subtitle_es", widget: "string" }
+          - { label: "Instagram (handle or url)", name: "instagram", widget: "string" }
+          - { label: "WhatsApp (full link)", name: "whatsapp", widget: "string" }
+          - label: "Gallery"
+            name: "gallery"
             widget: "list"
             fields:
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Alt", name: "alt", widget: "string", required: false }
-          - { label: "Aftercare (EN) — HTML allowed", name: "en.aftercare_html", widget: "text" }
-
-          - { label: "Título (ES)", name: "es.title", widget: "string" }
-          - { label: "Subtítulo (ES)", name: "es.subtitle", widget: "string" }
-          - { label: "Instagram (ES)", name: "es.instagram", widget: "string" }
-          - { label: "WhatsApp (ES)", name: "es.whatsapp", widget: "string" }
-          - label: "Galería (ES)"
-            name: "es.gallery"
+          - label: "Aftercare (EN)"
+            name: "aftercare_en"
             widget: "list"
             fields:
-              - { label: "Imagen", name: "image", widget: "image" }
-              - { label: "Alt", name: "alt", widget: "string", required: false }
-          - { label: "Aftercare (ES) — HTML permitido", name: "es.aftercare_html", widget: "text" }
+              - { label: "Step", name: "step", widget: "text" }
+          - label: "Aftercare (ES)"
+            name: "aftercare_es"
+            widget: "list"
+            fields:
+              - { label: "Paso", name: "step", widget: "text" }

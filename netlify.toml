@@ -1,10 +1,7 @@
 [build]
-  publish = "."
+  publish = "/"
 
-[[headers]]
-  for = "/admin/*"
-  [headers.values]
-    Cache-Control = "no-store"
-    X-Frame-Options = "SAMEORIGIN"
-
-# Enforce HTTPS and www->root redirect logic OFF (handled in dashboard)
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
