@@ -1,19 +1,28 @@
 {
-  "title_en": "Grimlayer Tattoo",
-  "subtitle_en": "Custom Tattoo Studio",
-  "title_es": "Grimlayer Tattoo",
-  "subtitle_es": "Estudio de Tatuajes Personalizados",
-  "instagram": "@grimlayertattoo",
+  "title": "Grimlayer Tattoo",
+  "subtitle": "Custom Tattoo Studio \u2014 Aftercare with Saniderm/Emalla (7 days).",
+  "instagram": "https://instagram.com/grimlayertattoo",
   "whatsapp": "https://wa.me/13059155560",
-  "gallery": [],
-  "aftercare_en": [
+  "gallery": [
     {
-      "step": "Leave Saniderm or Emalla membrane on for 7 days"
-    }
-  ],
-  "aftercare_es": [
+      "image": "/assets/portfolio/1.jpg",
+      "alt": "Sample tattoo 1"
+    },
     {
-      "step": "Dejar la membrana Saniderm o Emalla por 7 d\u00edas"
+      "image": "/assets/portfolio/2.jpg",
+      "alt": "Sample tattoo 2"
+    },
+    {
+      "image": "/assets/portfolio/3.jpg",
+      "alt": "Sample tattoo 3"
+    },
+    {
+      "image": "/assets/portfolio/4.jpg",
+      "alt": "Sample tattoo 4"
+    },
+    {
+      "image": "/assets/portfolio/5.jpg",
+      "alt": "Sample tattoo 5"
     }
   ]
 }
