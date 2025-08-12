@@ -1,29 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Admin — Grimlayer</title>
-  <link rel="icon" href="data:,">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grimlayer Admin</title>
   <style>
-    html,body{height:100%;margin:0;background:#0b0f14;color:#e6edf3}
-    .ready{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font:600 14px system-ui,Segoe UI,Roboto,Helvetica,Arial}
-    .ready span{opacity:.7}
+    body{background:#0b0d10;color:#e8edf2;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial}
   </style>
-  <!-- Netlify Identity Widget (required for Git Gateway auth) -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // Optional: Identity widget to auto-open login if not authenticated
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', user => {
+          if (!user) window.netlifyIdentity.on('login', () => document.location.reload());
+        });
+      }
+    });
+  </script>
 </head>
 <body>
-  <div class="ready"><span>Loading Admin…</span></div>
-  <script>
-    // If the Identity widget is on the page, show the login modal if the user is not logged in.
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', user => {
-        if (!user) { window.netlifyIdentity.on('login', () => { document.location.reload(); }); }
-      });
-    }
-  </script>
+  <div>Loading Admin…</div>
 </body>
 </html>

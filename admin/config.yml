@@ -1,56 +1,15 @@
 backend:
   name: git-gateway
   branch: main
-  identity_url: https://grimlayertattoo.com/.netlify/identity
-  gateway_url: https://grimlayertattoo.com/.netlify/git
+  repo: carajo8a74-lang/Grimlayertattoos
 
 site_url: https://grimlayertattoo.com
 display_url: https://grimlayertattoo.com
 
-media_folder: "assets/portfolio"
-public_folder: "/assets/portfolio"
-
-locale: en
+media_folder: "static/img"
+public_folder: "/img"
 
 collections:
-  - name: "site"
-    label: "Site content"
-    files:
-      - file: "content/site.en.json"
-        label: "Homepage (EN)"
-        name: "site_en"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Subtitle", name: "subtitle", widget: "string" }
-          - { label: "Instagram", name: "instagram", widget: "string" }
-          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
-          - label: "Gallery"
-            name: "gallery"
-            widget: "list"
-            fields:
-              - { label: "Image", name: "image", widget: "image" }
-              - { label: "Alt text", name: "alt", widget: "string", required: false }
-          - label: "Aftercare (EN)"
-            name: "aftercare"
-            widget: "markdown"
-      - file: "content/site.es.json"
-        label: "Inicio (ES)"
-        name: "site_es"
-        fields:
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Subtítulo", name: "subtitle", widget: "string" }
-          - { label: "Instagram", name: "instagram", widget: "string" }
-          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
-          - label: "Galería"
-            name: "gallery"
-            widget: "list"
-            fields:
-              - { label: "Imagen", name: "image", widget: "image" }
-              - { label: "Alt", name: "alt", widget: "string", required: false }
-          - label: "Aftercare (ES)"
-            name: "aftercare"
-            widget: "markdown"
-
   - name: "portfolio"
     label: "Portfolio"
     folder: "content/portfolio"
@@ -59,4 +18,21 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
-      - { label: "Description", name: "body", widget: "markdown", required: false }
+      - { label: "Description", name: "body", widget: "markdown" }
+
+  - name: "aftercare"
+    label: "Aftercare"
+    folder: "content/aftercare"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "booking"
+    label: "Booking Info"
+    folder: "content/booking"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Message", name: "body", widget: "markdown" }
