@@ -2,9 +2,6 @@ backend:
   name: git-gateway
   branch: main
 
-site_url: https://grimlayertattoo.com
-display_url: https://grimlayertattoo.com
-
 media_folder: "assets/portfolio"
 public_folder: "/assets/portfolio"
 
@@ -13,26 +10,46 @@ collections:
     label: "Site"
     files:
       - file: "content/site.json"
-        label: "Main Content"
+        label: "Main content"
         name: "site"
         fields:
-          - { label: "Title (EN)", name: "title", widget: "string", i18n: true }
-          - { label: "Subtitle (EN)", name: "subtitle", widget: "string", i18n: true }
-          - { label: "Booking URL", name: "booking_url", widget: "string", i18n: true }
-          - { label: "Book button text", name: "book_text", widget: "string", i18n: true }
-          - { label: "See portfolio text", name: "see_portfolio", widget: "string", i18n: true }
-          - { label: "Instagram", name: "instagram", widget: "string", i18n: true, required: false }
-          - { label: "WhatsApp Text", name: "whatsapp_text", widget: "string", i18n: true, required: false }
-          - { label: "WhatsApp URL", name: "whatsapp_url", widget: "string", i18n: true, required: false }
-          - { label: "Portfolio Heading", name: "portfolio_heading", widget: "string", i18n: true }
-          - { label: "Aftercare Heading", name: "aftercare_heading", widget: "string", i18n: true }
-          - label: "Gallery"
-            name: "gallery"
-            widget: "list"
+          - label: "English"
+            name: "en"
+            widget: "object"
             fields:
-              - { label: "Image", name: "image", widget: "image" }
-              - { label: "Alt", name: "alt", widget: "string", required: false }
-          - label: "Aftercare"
-            name: "aftercare"
-            widget: "list"
-            field: { label: "Step", name: "step", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Book text", name: "book_text", widget: "string" }
+              - { label: "See portfolio", name: "see_portfolio", widget: "string" }
+              - { label: "Portfolio heading", name: "portfolio_heading", widget: "string" }
+              - { label: "Aftercare heading", name: "aftercare_heading", widget: "string" }
+              - { label: "Instagram", name: "instagram", widget: "string" }
+              - { label: "WhatsApp text", name: "whatsapp_text", widget: "string" }
+              - { label: "WhatsApp URL", name: "whatsapp_url", widget: "string" }
+              - { label: "Aftercare (list)", name: "aftercare", widget: "list", field: { label: "Step", name: "step", widget: "string" } }
+              - label: "Gallery"
+                name: "gallery"
+                widget: "list"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Alt", name: "alt", widget: "string", required: false }
+          - label: "Spanish"
+            name: "es"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "text" }
+              - { label: "Texto botón reservar", name: "book_text", widget: "string" }
+              - { label: "Ver portafolio", name: "see_portfolio", widget: "string" }
+              - { label: "Encabezado portafolio", name: "portfolio_heading", widget: "string" }
+              - { label: "Encabezado cuidados", name: "aftercare_heading", widget: "string" }
+              - { label: "Instagram", name: "instagram", widget: "string" }
+              - { label: "Texto WhatsApp", name: "whatsapp_text", widget: "string" }
+              - { label: "URL WhatsApp", name: "whatsapp_url", widget: "string" }
+              - { label: "Aftercare (lista)", name: "aftercare", widget: "list", field: { label: "Paso", name: "step", widget: "string" } }
+              - label: "Galería"
+                name: "gallery"
+                widget: "list"
+                fields:
+                  - { label: "Imagen", name: "image", widget: "image" }
+                  - { label: "Alt", name: "alt", widget: "string", required: false }

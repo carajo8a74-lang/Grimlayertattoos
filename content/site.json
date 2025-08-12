@@ -1,15 +1,14 @@
 {
   "en": {
-    "title": "High‑detail tattoos in Tampa",
+    "title": "High-detail tattoos in Tampa",
     "subtitle": "Online booking and aftercare with protective film (Saniderm/Emalla).",
-    "booking_url": "https://wa.me/13059155560?text=Hi%20I%27d%20like%20to%20book%20a%20tattoo",
     "book_text": "Book now",
     "see_portfolio": "See portfolio",
+    "portfolio_heading": "Portfolio",
+    "aftercare_heading": "Aftercare",
     "instagram": "@grimlayertattoo",
     "whatsapp_text": "WhatsApp",
     "whatsapp_url": "https://wa.me/13059155560",
-    "portfolio_heading": "Portfolio",
-    "aftercare_heading": "Aftercare",
     "gallery": [
       {
         "image": "/assets/portfolio/1.jpg",
@@ -21,48 +20,93 @@
       },
       {
         "image": "/assets/portfolio/3.jpg",
-        "alt": "Classical linework sleeve"
+        "alt": "Neo-classic sleeve"
+      },
+      {
+        "image": "/assets/portfolio/4.jpg",
+        "alt": "Fine line floral"
+      },
+      {
+        "image": "/assets/portfolio/5.jpg",
+        "alt": "Blackwork geometry"
+      },
+      {
+        "image": "/assets/portfolio/6.jpg",
+        "alt": "Realism portrait"
+      },
+      {
+        "image": "/assets/portfolio/7.jpg",
+        "alt": "Script lettering"
+      },
+      {
+        "image": "/assets/portfolio/8.jpg",
+        "alt": "Back piece in progress"
+      },
+      {
+        "image": "/assets/portfolio/9.jpg",
+        "alt": "Healed piece check"
       }
     ],
     "aftercare": [
-      "Keep film on for 24–48h. If it leaks, replace with new film.",
-      "Wash gently with fragrance‑free soap. Pat dry.",
-      "Moisturize 2–3×/day with thin layers. No scratching or picking.",
-      "Avoid pools, sun, and heavy workouts 1–2 weeks."
-    ],
-    "instagram_url": "https://instagram.com/grimlayertattoo"
+      "Keep Saniderm/Emalla film ON for 7 days (only replace if it peels or fills with fluid).",
+      "Avoid soaking and heavy sweating while the film is on.",
+      "On day 7: remove in the shower, wash gently, pat dry.",
+      "Apply thin moisturizer 2\u20133\u00d7 daily. Avoid sun and tight clothing for 2 weeks."
+    ]
   },
   "es": {
     "title": "Tatuajes de alto detalle en Tampa",
     "subtitle": "Reserva online y aftercare con membrana protectora (Saniderm/Emalla).",
-    "booking_url": "https://wa.me/13059155560?text=Hola%20quiero%20agendar%20un%20tatuaje",
     "book_text": "Reservar ahora",
     "see_portfolio": "Ver portafolio",
+    "portfolio_heading": "Portafolio",
+    "aftercare_heading": "Cuidados",
     "instagram": "@grimlayertattoo",
     "whatsapp_text": "WhatsApp",
     "whatsapp_url": "https://wa.me/13059155560",
-    "portfolio_heading": "Portafolio",
-    "aftercare_heading": "Aftercare",
     "gallery": [
       {
         "image": "/assets/portfolio/1.jpg",
-        "alt": "Pieza oscura de araña/calavera en hombro"
+        "alt": "Pieza oscura ara\u00f1a/calavera en hombro"
       },
       {
         "image": "/assets/portfolio/2.jpg",
-        "alt": "Composición surrealista en antebrazo"
+        "alt": "Composici\u00f3n surrealista en antebrazo"
       },
       {
         "image": "/assets/portfolio/3.jpg",
-        "alt": "Sleeve clásico en linework"
+        "alt": "Manga neocl\u00e1sica"
+      },
+      {
+        "image": "/assets/portfolio/4.jpg",
+        "alt": "Floral en fineline"
+      },
+      {
+        "image": "/assets/portfolio/5.jpg",
+        "alt": "Geometr\u00eda blackwork"
+      },
+      {
+        "image": "/assets/portfolio/6.jpg",
+        "alt": "Retrato realista"
+      },
+      {
+        "image": "/assets/portfolio/7.jpg",
+        "alt": "Lettering"
+      },
+      {
+        "image": "/assets/portfolio/8.jpg",
+        "alt": "Pieza de espalda en progreso"
+      },
+      {
+        "image": "/assets/portfolio/9.jpg",
+        "alt": "Pieza cicatrizada"
       }
     ],
     "aftercare": [
-      "Mantén la membrana 24–48h. Si gotea, reemplázala.",
-      "Lava suavemente con jabón neutro. Seca con golpecitos.",
-      "Hidrata 2–3×/día en capas finas. No rascar ni quitar costras.",
-      "Evita piscinas, sol y ejercicio intenso por 1–2 semanas."
-    ],
-    "instagram_url": "https://instagram.com/grimlayertattoo"
+      "Mant\u00e9n la membrana Saniderm/Emalla puesta durante 7 d\u00edas (solo c\u00e1mbiala si se despega o se llena de fluido).",
+      "Evita sumergir el \u00e1rea y el sudor excesivo mientras la membrana est\u00e1 puesta.",
+      "Al d\u00eda 7: ret\u00edrala en la ducha, lava suave, seca sin frotar.",
+      "Aplica hidratante fina 2\u20133\u00d7 al d\u00eda. Evita sol y ropa ajustada por 2 semanas."
+    ]
   }
 }

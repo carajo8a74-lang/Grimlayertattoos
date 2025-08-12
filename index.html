@@ -4,27 +4,36 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Grimlayer Tattoo — Tampa</title>
-  <meta name="description" content="High‑detail tattoos in Tampa. Online booking and aftercare with protective film (Saniderm/Emalla)."/>
+  <meta name="description" content="High-detail tattoos in Tampa. Online booking and aftercare with protective film (Saniderm/Emalla)."/>
   <link rel="stylesheet" href="/styles.css"/>
-  <link rel="preconnect" href="https://unpkg.com">
+  <script>
+    // Redirect Netlify Identity tokens to /admin/
+    (function(){
+      var h = window.location.hash||"";
+      if(/(invite_token|confirmation_token|recovery_token)=/i.test(h)){
+        location.replace("/admin/"+h);
+      }
+    })();
+  </script>
 </head>
 <body>
   <header class="topbar">
     <div class="brand">Grimlayer Tattoo</div>
     <nav class="nav">
-      <a id="langEN" class="chip on" href="#">EN</a>
-      <a id="langES" class="chip" href="#">ES</a>
+      <button id="langEN" class="chip on">EN</button>
+      <button id="langES" class="chip">ES</button>
       <a id="igLink" class="link" target="_blank" rel="noopener">@grimlayertattoo</a>
       <a id="waLink" class="btn" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn ghost" href="/admin/">Admin</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <h1 id="title">High‑detail tattoos in Tampa</h1>
+      <h1 id="title">High-detail tattoos in Tampa</h1>
       <p id="subtitle" class="muted">Online booking and aftercare with protective film (Saniderm/Emalla).</p>
       <div class="cta">
-        <a id="bookBtn" class="btn lg" target="_blank" rel="noopener">Book now</a>
+        <a id="bookBtn" class="btn lg" href="/book.html">Book now</a>
         <a href="#portfolio" class="btn ghost lg" id="seePortfolio">See portfolio</a>
       </div>
     </section>
@@ -42,18 +51,8 @@
 
   <footer class="footer">
     <small>© <span id="year"></span> Grimlayer Tattoo</small>
-    <a href="/admin/" class="muted small">Admin</a>
   </footer>
 
-  <script>
-  // Identity magic redirects for invite/reset tokens -> /admin/
-  (function() {
-    var hash = window.location.hash || "";
-    if (/#(invite_token|confirmation_token|recovery_token)=/i.test(hash)) {
-      window.location.replace("/admin/" + hash);
-    }
-  })();
-  </script>
   <script src="/app.js"></script>
 </body>
 </html>

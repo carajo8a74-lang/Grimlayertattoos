@@ -1,22 +1,20 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Admin — Grimlayer</title>
-    <link rel="stylesheet" href="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.css">
-  </head>
-  <body>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <script>
-      // Ensure token flows from homepage also work
-      (function(){
-        var h = window.location.hash || "";
-        if(/(invite_token|confirmation_token|recovery_token)=/.test(h)) {
-          // already here
-        }
-      })();
-    </script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Admin — Grimlayer</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://unpkg.com/decap-cms@^3.3.0/dist/decap-cms.js"></script>
+  <style>html,body{height:100%;margin:0;background:#0b0d10;color:#cbd3df;display:grid;place-items:center}</style>
+</head>
+<body>
+  <div>Loading Admin…</div>
+  <script>
+    if (window.netlifyIdentity) {
+      netlifyIdentity.on('init', user => { if (!user) netlifyIdentity.open('login'); });
+      netlifyIdentity.on('login', () => location.reload());
+    }
+  </script>
+</body>
 </html>

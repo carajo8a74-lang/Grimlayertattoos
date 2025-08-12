@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Book — Grimlayer</title>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Grimlayer Tattoo</div>
+    <nav class="nav"><a class="chip" href="/">← Home</a></nav>
+  </header>
+
+  <main class="section" style="max-width:720px">
+    <h1 id="hTitle">Booking request</h1>
+    <p class="muted" id="hSubtitle">Tell me your idea. I’ll get back to you.</p>
+
+    <form name="booking" method="POST" action="/thanks.html"
+          data-netlify="true" data-netlify-honeypot="bot-field"
+          enctype="multipart/form-data" class="card" style="padding:16px">
+      <input type="hidden" name="form-name" value="booking">
+      <input type="hidden" id="langField" name="lang" value="en">
+      <p style="display:none"><label>Don’t fill this out: <input name="bot-field"></label></p>
+
+      <label class="lbl">Name / Nombre
+        <input class="in" type="text" name="name" required placeholder="Your name / Tu nombre">
+      </label>
+
+      <label class="lbl">Email
+        <input class="in" type="email" name="email" required placeholder="you@email.com">
+      </label>
+
+      <label class="lbl">WhatsApp
+        <input class="in" type="tel" name="whatsapp" placeholder="+1 305 915 5560">
+      </label>
+
+      <label class="lbl" id="descLbl">Brief description / Descripción breve
+        <textarea class="in" name="description" rows="5" required placeholder="Style, size, placement... / Estilo, tamaño, ubicación..."></textarea>
+      </label>
+
+      <label class="lbl">Reference images (1–3) / Imágenes de referencia (1–3)
+        <input class="in" type="file" name="references" accept="image/*" multiple>
+        <small class="muted">Max 10MB per file.</small>
+      </label>
+
+      <div data-netlify-recaptcha="true"></div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+        <button class="btn" type="submit" id="submitBtn">Send</button>
+        <a class="btn ghost" href="/" id="cancelBtn">Cancel</a>
+      </div>
+    </form>
+
+    <section class="section">
+      <h3 id="altCTA" class="h2">Prefer WhatsApp?</h3>
+      <p class="muted" id="altCTAText">Tap to start a chat — I’ll ask for details and references there.</p>
+      <p><a class="btn" id="waDirect" href="https://wa.me/13059155560?text=Hi!%20I%27d%20like%20to%20book%20a%20tattoo">Open WhatsApp</a></p>
+    </section>
+  </main>
+
+  <script>
+    (async function(){
+      try{
+        const res = await fetch('/content/site.json?ts='+Date.now());
+        const data = await res.json();
+        const lang = (localStorage.getItem('lang')||'en');
+        document.getElementById('langField').value = lang;
+        const t = data[lang];
+        document.getElementById('hTitle').textContent = lang==='es' ? 'Solicitud de cita' : 'Booking request';
+        document.getElementById('hSubtitle').textContent = lang==='es' ? 'Cuéntame tu idea. Te respondo pronto.' : "Tell me your idea. I’ll get back to you.";
+        document.getElementById('submitBtn').textContent = lang==='es' ? 'Enviar' : 'Send';
+        document.getElementById('cancelBtn').textContent = lang==='es' ? 'Cancelar' : 'Cancel';
+        document.getElementById('altCTA').textContent = lang==='es' ? '¿Prefieres WhatsApp?' : 'Prefer WhatsApp?';
+        document.getElementById('altCTAText').textContent = lang==='es' ? 'Toca para iniciar chat — ahí te pido detalles e imágenes.' : 'Tap to start a chat — I’ll ask for details and references there.';
+        document.getElementById('waDirect').href = t.whatsapp_url + (lang==='es' ? '?text=Hola%20quiero%20agendar%20un%20tatuaje' : '?text=Hi!%20I%27d%20like%20to%20book%20a%20tattoo');
+      }catch(e){}
+    })();
+  </script>
+</body>
+</html>
