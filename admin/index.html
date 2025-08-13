@@ -2,18 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Admin — Grimlayer</title>
+
+  <!-- 👇 Necesario para que Decap/Netlify CMS hable con Netlify Identity -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="https://unpkg.com/decap-cms@^3.3.0/dist/decap-cms.js"></script>
-  <style>html,body{height:100%;margin:0;background:#0b0d10;color:#cbd3df;display:grid;place-items:center}</style>
+
+  <!-- Decap CMS (Netlify CMS) -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <style>
+    html,body{height:100%;margin:0;background:#0b0d0f;color:#cbd5e1;font:16px system-ui,Segoe UI,Roboto,Arial}
+    .center{height:100%;display:grid;place-items:center}
+    a{color:#9ecbff;text-decoration:none}
+  </style>
 </head>
 <body>
-  <div>Loading Admin…</div>
+  <div class="center">Loading Admin…</div>
+
   <script>
+    // Opcional: abrir el modal de login si no hay sesión
     if (window.netlifyIdentity) {
-      netlifyIdentity.on('init', user => { if (!user) netlifyIdentity.open('login'); });
-      netlifyIdentity.on('login', () => location.reload());
+      window.netlifyIdentity.on('init', user => {
+        if (!user) window.netlifyIdentity.open('login');
+      });
+      window.netlifyIdentity.on('login', () => {
+        // recarga para entregar el token al CMS
+        window.location.reload();
+      });
     }
   </script>
 </body>
