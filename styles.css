@@ -18,7 +18,6 @@
 .aftercare{display:grid;gap:10px}
 .step{background:var(--panel);border:1px solid #1c2331;border-radius:12px;padding:12px}
 .footer{padding:22px 18px;color:var(--muted);text-align:center;border-top:1px solid #171c26}
-/* form */
 .lbl{display:block;margin:10px 0 6px}
 .in{width:100%;padding:10px 12px;border-radius:10px;background:#0c1016;border:1px solid #1b2330;color:#e8eef6}
 .in:focus{outline:2px solid #2b5fff55}

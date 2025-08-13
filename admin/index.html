@@ -10,7 +10,7 @@
     .wrap{display:grid;gap:12px;place-items:center;text-align:center}
     a{color:#9ecbff}
   </style>
-  <!-- Load Identity FIRST -->
+  <!-- Identity FIRST -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <!-- Then Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
@@ -22,9 +22,7 @@
   </div>
 
   <script>
-    // Force Identity endpoint to this site
     window.NETLIFY_IDENTITY_URL = window.location.origin + '/.netlify/identity';
-
     if (window.netlifyIdentity) {
       netlifyIdentity.on('init', user => { if (!user) netlifyIdentity.open('login'); });
       netlifyIdentity.on('login', () => { location.reload(); });
