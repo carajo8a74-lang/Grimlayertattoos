@@ -4,31 +4,30 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Admin — Grimlayer</title>
-
-  <!-- 👇 Necesario para que Decap/Netlify CMS hable con Netlify Identity -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-  <!-- Decap CMS (Netlify CMS) -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <meta name="robots" content="noindex"/>
   <style>
-    html,body{height:100%;margin:0;background:#0b0d0f;color:#cbd5e1;font:16px system-ui,Segoe UI,Roboto,Arial}
-    .center{height:100%;display:grid;place-items:center}
-    a{color:#9ecbff;text-decoration:none}
+    body{margin:0;display:grid;place-items:center;height:100vh;background:#0b0d0f;color:#cbd5e1;font:16px system-ui,-apple-system,Segoe UI,Roboto}
+    .wrap{display:grid;gap:12px;place-items:center;text-align:center}
+    a{color:#9ecbff}
   </style>
+  <!-- Load Identity FIRST -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Then Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
-  <div class="center">Loading Admin…</div>
+  <div class="wrap">
+    <div id="status">Loading Admin…</div>
+    <div><a href="/admin/health.html">Health check</a></div>
+  </div>
 
   <script>
-    // Opcional: abrir el modal de login si no hay sesión
+    // Force Identity endpoint to this site
+    window.NETLIFY_IDENTITY_URL = window.location.origin + '/.netlify/identity';
+
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', user => {
-        if (!user) window.netlifyIdentity.open('login');
-      });
-      window.netlifyIdentity.on('login', () => {
-        // recarga para entregar el token al CMS
-        window.location.reload();
-      });
+      netlifyIdentity.on('init', user => { if (!user) netlifyIdentity.open('login'); });
+      netlifyIdentity.on('login', () => { location.reload(); });
     }
   </script>
 </body>

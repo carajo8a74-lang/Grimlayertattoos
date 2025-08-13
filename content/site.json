@@ -1,9 +1,8 @@
 {
   "en": {
-    "title": "High-detail tattoos in Tampa",
+    "title": "High\u2011detail tattoos in Tampa",
     "subtitle": "Online booking and aftercare with protective film (Saniderm/Emalla).",
     "book_text": "Book now",
-    "see_portfolio": "See portfolio",
     "portfolio_heading": "Portfolio",
     "aftercare_heading": "Aftercare",
     "instagram": "@grimlayertattoo",
@@ -20,31 +19,7 @@
       },
       {
         "image": "/assets/portfolio/3.jpg",
-        "alt": "Neo-classic sleeve"
-      },
-      {
-        "image": "/assets/portfolio/4.jpg",
-        "alt": "Fine line floral"
-      },
-      {
-        "image": "/assets/portfolio/5.jpg",
-        "alt": "Blackwork geometry"
-      },
-      {
-        "image": "/assets/portfolio/6.jpg",
-        "alt": "Realism portrait"
-      },
-      {
-        "image": "/assets/portfolio/7.jpg",
-        "alt": "Script lettering"
-      },
-      {
-        "image": "/assets/portfolio/8.jpg",
-        "alt": "Back piece in progress"
-      },
-      {
-        "image": "/assets/portfolio/9.jpg",
-        "alt": "Healed piece check"
+        "alt": "Classical linework sleeve"
       }
     ],
     "aftercare": [
@@ -58,7 +33,6 @@
     "title": "Tatuajes de alto detalle en Tampa",
     "subtitle": "Reserva online y aftercare con membrana protectora (Saniderm/Emalla).",
     "book_text": "Reservar ahora",
-    "see_portfolio": "Ver portafolio",
     "portfolio_heading": "Portafolio",
     "aftercare_heading": "Cuidados",
     "instagram": "@grimlayertattoo",
@@ -67,7 +41,7 @@
     "gallery": [
       {
         "image": "/assets/portfolio/1.jpg",
-        "alt": "Pieza oscura ara\u00f1a/calavera en hombro"
+        "alt": "Pieza oscura de ara\u00f1a/calavera en hombro"
       },
       {
         "image": "/assets/portfolio/2.jpg",
@@ -75,31 +49,7 @@
       },
       {
         "image": "/assets/portfolio/3.jpg",
-        "alt": "Manga neocl\u00e1sica"
-      },
-      {
-        "image": "/assets/portfolio/4.jpg",
-        "alt": "Floral en fineline"
-      },
-      {
-        "image": "/assets/portfolio/5.jpg",
-        "alt": "Geometr\u00eda blackwork"
-      },
-      {
-        "image": "/assets/portfolio/6.jpg",
-        "alt": "Retrato realista"
-      },
-      {
-        "image": "/assets/portfolio/7.jpg",
-        "alt": "Lettering"
-      },
-      {
-        "image": "/assets/portfolio/8.jpg",
-        "alt": "Pieza de espalda en progreso"
-      },
-      {
-        "image": "/assets/portfolio/9.jpg",
-        "alt": "Pieza cicatrizada"
+        "alt": "Sleeve cl\u00e1sico en linework"
       }
     ],
     "aftercare": [

@@ -4,15 +4,13 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Grimlayer Tattoo — Tampa</title>
-  <meta name="description" content="High-detail tattoos in Tampa. Online booking and aftercare with protective film (Saniderm/Emalla)."/>
+  <meta name="description" content="High‑detail tattoos in Tampa. Online booking and aftercare with protective film (Saniderm/Emalla)."/>
   <link rel="stylesheet" href="/styles.css"/>
   <script>
-    // Redirect Netlify Identity tokens to /admin/
+    // Redirect invite/reset tokens from Identity to /admin/
     (function(){
       var h = window.location.hash||"";
-      if(/(invite_token|confirmation_token|recovery_token)=/i.test(h)){
-        location.replace("/admin/"+h);
-      }
+      if(/(invite_token|confirmation_token|recovery_token)=/.test(h)){ location.replace("/admin/"+h); }
     })();
   </script>
 </head>
@@ -24,18 +22,15 @@
       <button id="langES" class="chip">ES</button>
       <a id="igLink" class="link" target="_blank" rel="noopener">@grimlayertattoo</a>
       <a id="waLink" class="btn" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn ghost" href="/book.html" id="bookBtn">Book now</a>
       <a class="btn ghost" href="/admin/">Admin</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <h1 id="title">High-detail tattoos in Tampa</h1>
+      <h1 id="title">High‑detail tattoos in Tampa</h1>
       <p id="subtitle" class="muted">Online booking and aftercare with protective film (Saniderm/Emalla).</p>
-      <div class="cta">
-        <a id="bookBtn" class="btn lg" href="/book.html">Book now</a>
-        <a href="#portfolio" class="btn ghost lg" id="seePortfolio">See portfolio</a>
-      </div>
     </section>
 
     <section class="section">
